@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Roboto:ital,wght@0,300;1,100&display=swap');
+
+
+body {
+  padding: 10px;
+  font-family: 'Arimo', sans-serif;
+  
+}
+
+
+.ALTA{
+
+  background-color: #e70800;
+  width: 85px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: 100;
+  padding: 2px;
+  font-size: 13px;
+  display:inline-block; 
+  content: "ALTA";
+  
+}
+
+
+.MEDIO{
+
+  background-color: #e77200;
+  width: 85px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: 100;
+  padding: 2px;
+  font-size: 13px;
+  content: "MEDIO";
+  display:inline-block; 
+
+}
+
+
+.BAJO{
+
+  background-color: #84c6ed;
+  width: 85px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: 100;
+  padding: 2px;
+  font-size: 13px;
+  display:inline-block; 
+  
+
+}
+
+.desplegar{
+position: relative;
+width: 650px;
+height: 250px;
+/* border: 1px black solid; */
+float: right;
+left: 70px;
+top: -13px;
+opacity: 1;
+transition: opacity 2s linear;
+
+
+
+}
+
+button{
+  display: block;
+  outline:none;
+  background-color: white;
+  border: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  
+}
+
+button:focus{
+
+  color: white;
+  outline: none !important;
+  background-color: transparent;
+  border: white; 
+
+}
+
+.cointainer{
+
+display: flex;
+
+
+}
+
+
+.masinfo{
+ width: 480px;
+margin-top: 8px;
+padding-right: 10px;
+ /* border: 1px black solid; */
+}
+
+.descripcion{
+
+width:300px ;
+/* border: 1px black solid; */
+margin-top: 14px;
+padding-left: 60px;
+padding-right: 5px;
+
+}
+
+
+/* .table {border-collapse:collapse; border: none;} */
+
+
+.todos{
+
+  display: inline-block;
+  width: 600px;
+  border: solid 1px black;
+}
