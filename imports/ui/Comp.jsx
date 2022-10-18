@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 export const Comp = (datos) => {
 
-  const [mostrarComponente, setMostrarComponente] = useState(true);
+  const [mostrarComponente, setMostrarComponente] = useState(false);
   const al = "MEDIO";
 
 
   return (
 
     <React.Fragment>
+      {/* Lo que se mostrar sin ampliar */}
       <tr>
         <td> {datos.Hora} </td>
         <td>
@@ -31,7 +32,8 @@ export const Comp = (datos) => {
         </td>
       </tr>
 
-      <tr class="nada">
+      {/* Lo que se mostrara al ampliar */}
+      <tr class="">
         <td colspan="7">
           <div className={mostrarComponente ? "show-element" : null}>
             {mostrarComponente && <div class =" desplegar "> 
