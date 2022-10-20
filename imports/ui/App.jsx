@@ -2,7 +2,7 @@ import React from 'react';
 import { Data } from './Data.jsx';
 import { Comp } from './Comp.jsx';
 
-export const Layout = () => (
+export const App = () => (
   <div>
 
     <Data/>

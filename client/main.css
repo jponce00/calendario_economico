@@ -1,6 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Roboto:ital,wght@0,300;1,100&display=swap');
 
+body{}.news{width: 220px; padding-right: 10px; }.news-scroll 
+a{text-decoration: none; color: #000000; }.dot{
+  height: 6px;
+  width: 6px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 2px !important;
+  background-color: rgb(207,23,23);
+  border-radius: 50%;
+  display: inline-block}
 
 body {
   padding: 10px;
@@ -122,4 +132,201 @@ padding-right: 5px;
   display: inline-block;
   width: 600px;
   border: solid 1px black;
+}
+
+
+
+/* --------------------- */
+
+.custom-checkbox {
+  display: none;
+  appearance: none;
+}
+
+.custom-checkbox + label {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.custom-checkbox + label span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #EAECEF;
+  background-color: #ffffff;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.custom-checkbox + label span::before {
+  content: "";
+  opacity: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+  border-radius: 2px;
+}
+
+.custom-checkbox:checked + label span::before {
+  opacity: 1;
+}
+
+.custom-checkbox:disabled + label {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.custom-checkbox:disabled + label span {
+  cursor: default;
+}
+
+
+#chec{
+
+  background: none;
+  border: none;
+  color: #000000;
+}
+
+
+
+
+.sinsalto{
+display: inline;
+font-size: 15px;
+background-color: #e70800;
+padding: 4px;
+font-weight: 623;
+color: #ffffff;
+}
+
+.sinsaltomedio{
+  display: inline;
+  font-size: 15px;
+  background-color: #e77200;
+  padding: 4px;
+  font-weight: 623;
+  color: #ffffff;
+  }
+
+
+  .sinsaltobajo{
+    display: inline;
+    font-size: 15px;
+    background-color: #84c6ed;
+    padding: 4px;
+    font-weight: 623;
+    color: #ffffff;
+    }
+
+.nosalto{
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 200 ;
+  
+  
+}
+
+.chetodo{
+  display: inline-block;
+  background-color: #536878;
+  padding-top: 10px;
+  padding: 2px;
+  padding-left: 10px;
+  
+  width: 170px;
+  height: 43px;
+  font-size: 23px;
+  /* border: #ffffff 1px solid; */
+}
+
+.dropdown-menu{
+
+  background-color: #3b444b;
+  position: fixed;
+}
+
+label{
+  color: #ffffff;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+  font-size: 14px;
+}
+
+#dropdownMenuButton{
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 0 !important;
+  border: 	#708090 1px solid;
+}
+
+.import{
+  
+  display: inline-block;
+  float: inline-end;
+  
+}
+
+
+.vertical-line{
+  width: 1px; /* Line width */
+  background-color: black; /* Line color */
+  
+  display: inline-block;
+  height: 25px;
+ 
+}
+
+
+#dropdownMenuButton:focus{
+  background-color: #3b444b;
+  color: #ffffff;
+  display: block;
+  /* margin-bottom: 300px; */
+}
+
+/* .dropdown:hover .dropdown-menu {
+  display: block;
+  background-color: #3b444b;
+  margin-bottom: 300px;
+  color: #ffffff;
+} */
+
+
+.menufilt{
+  margin-top: 30px;
+  margin-bottom: 25px;
+  /* background-color: #3b444b; */
+  
+
+}
+
+.menu{
+  height: 100px;
+  background-color: #3b444b;
+}
+
+.titulo{
+
+  margin-top: 40px;
+  margin-bottom: 25px;
+  
+}
+
+.flecha{
+  display: inline-block;
+  padding-top: 5px;
+  color: #ffffff;
+
 }
