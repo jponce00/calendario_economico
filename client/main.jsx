@@ -6,5 +6,5 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 Meteor.startup(() => {
-  render(<App/>, document.getElementById('react-target'));
+	render(<App/>, document.getElementById('react-target'));
 });
