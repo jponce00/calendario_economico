@@ -2,6 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import {check, Match} from 'meteor/check';
 import {Noticia} from './Noticia';
 import { ResponseMessage } from '../../startup/server/utilities/ResponseMessage';
+import {ValidatedMethod} from 'meteor/mdg:validated-method';
 
 new ValidatedMethod({
     name: 'guardar.noticia',
