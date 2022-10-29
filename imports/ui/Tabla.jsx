@@ -1,13 +1,13 @@
 import React from 'react';
 import {Registro} from './Registro';
 
-export function Tabla() {
+export function Tabla({noticias}) {
     return (
         <table class="table tabla">
             <thead>
                 <tr>						
                     <th scope="col">Hora</th>
-                    <th scope="col">Div</th>
+                    <th scope="col">Pais</th>
                     <th scope="col">Importancia</th>
                     <th scope="col">Evento</th>
                     <th scope="col">Actual</th>
@@ -17,7 +17,11 @@ export function Tabla() {
             </thead>
             <tbody>
 
-                <Registro 
+                {
+                    noticias.map(noticia => <Registro noticia={noticia} />)
+                }
+
+                {/* <Registro 
                     Hora = {"23:30"}
                     Div = {"https://cdn-icons-png.flaticon.com/512/330/330426.png"}
                     Importancia= {"ALTA"}  
@@ -43,6 +47,32 @@ export function Tabla() {
                     Fuente = {"Office for National Statistics"}
                     texto = {"El índice de precios de ventas al por menor (RPI) mide los cambios en el precio de los bienes y servicios adquiridos por los consumidores con el propósito de consumo."}                    
                 ></Registro>
+
+                <Registro 
+                    Hora = {"08:00"}
+                    Div = {"https://cdn-icons-png.flaticon.com/128/555/555417.png"}
+                    Importancia= {"BAJO"}  
+                    Evento={"Índice de precios al por menor (Anual) (Sep)"}
+                    Actual = {"5.1%"}
+                    Previsión = {"12,4%"}
+                    Anterior = {"12,3%"}
+                    Divisa = {"GBP"}
+                    Fuente = {"Office for National Statistics"}
+                    texto = {"El índice de precios de ventas al por menor (RPI) mide los cambios en el precio de los bienes y servicios adquiridos por los consumidores con el propósito de consumo."}
+                ></Registro>
+
+                <Registro 
+                    Hora = {"08:00"}
+                    Div = {"https://cdn-icons-png.flaticon.com/128/555/555417.png"}
+                    Importancia= {"BAJO"}  
+                    Evento={"Índice de precios al por menor (Anual) (Sep)"}
+                    Actual = {"5.1%"}
+                    Previsión = {"12,4%"}
+                    Anterior = {"12,3%"}
+                    Divisa = {"GBP"}
+                    Fuente = {"Office for National Statistics"}
+                    texto = {"El índice de precios de ventas al por menor (RPI) mide los cambios en el precio de los bienes y servicios adquiridos por los consumidores con el propósito de consumo."}
+                ></Registro> */}
 
             </tbody>
         </table>

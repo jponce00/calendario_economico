@@ -10,12 +10,17 @@ new ValidatedMethod({
         check(news, {
             _id: Match.OneOf(String, null),
             name: String,
-            importance: String,            
+            importance: String,
+            year: String,
+            month: String,
+            day: String,
             country: {
                 country: String,
                 region: String,
                 currency: String
             },
+            hour: String,
+            minutes: String,
             actual: Number,
             forecast: Number,
             previous: Number,
@@ -29,17 +34,17 @@ new ValidatedMethod({
             News.insert({
                 name: news.name,
                 importance: news.importance,
-                year: new Date().getFullYear().toString(),
-                month: (new Date().getMonth() + 1).toString(),
-                day: new Date().getDate().toString(),
+                year: news.year,
+                month: news.month,
+                day: news.day,
                 createdAt: new Date(),
                 country: news.country,
-                hour: new Date().getHours().toString(),
-                minutes: new Date().getMinutes().toString(),
+                hour: news.hour,
+                minutes: news.minutes,
                 actual: news.actual,
                 forecast: news.forecast,
                 previous: news.previous,
-                descripcion: news.description,
+                description: news.description,
                 source: news.source
             });
             responseMessage.create('Se creo la noticia exitosamente.');

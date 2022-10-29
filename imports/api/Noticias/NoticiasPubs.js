@@ -3,9 +3,7 @@ import {News} from './Noticia';
 
 // Metodo para listar todo el contenido:
 Meteor.publish('news.list', function() {
-    return News.find({}, {
-        sort: {createdAt: -1}
-    });
+    return News.find();
 });
 
 // Metodo para filtrar por tipo de importancia:

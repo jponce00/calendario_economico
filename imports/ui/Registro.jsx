@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
-export const Registro = (datos) => {
+export function Registro({noticia}) {
 
 	const [mostrarComponente, setMostrarComponente] = useState(false);
 	const al = "MEDIO";
 
-
 	return (
-
-		<React.Fragment>
+		
+		<>						
 			{/* Lo que se mostrar sin ampliar */}
 			<tr>
-				<td> {datos.Hora} </td>
+				<td> {noticia.hour}:{noticia.minutes} </td>
 				<td>
-					<img src={datos.Div} alt="" height='27' width='27'></img>
+					<img src={noticia.country.country} alt="" height='27' width='27'></img>
 				</td>
 				<td>
-					<div class= {datos.Importancia}>
-						{datos.Importancia}
+					<div class= {noticia.importance}>
+						{noticia.importance}
 					</div> 
 				</td>
-				<td> {datos.Evento} </td>
-				<td> {datos.Actual} </td>
-				<td> {datos.Previsión} </td>
-				<td> {datos.Anterior} </td>
+				<td> {noticia.name} </td>
+				<td> {noticia.actual} </td>
+				<td> {noticia.forecast} </td>
+				<td> {noticia.previous} </td>
 				<td> 
 					<button onClick={() => setMostrarComponente(!mostrarComponente)}  >
 						{/* imagen de la flecha   */}
@@ -40,14 +39,14 @@ export const Registro = (datos) => {
 							<div class = "cointainer"> 
 
 								<div class='descripcion' >
-									<p> <b> Imp: </b> &nbsp; <div class= {datos.Importancia}>{datos.Importancia}</div> </p>
-									<p> <b>País: </b> &nbsp; &nbsp;&nbsp;<img src= {datos.Div} alt="" height='27' width='27'></img> </p>
-									<p> <b>Divisa: </b>  &nbsp;	{datos.Divisa} </p>
-									<p> <b>Fuente: </b> &nbsp;	{datos.Fuente} </p> 
+									<p> <b> Imp: </b> &nbsp; <div class= {noticia.importance}>{noticia.importance}</div> </p>
+									<p> <b>País: </b> &nbsp; &nbsp;&nbsp;<img src= {noticia.country.country} alt="" height='27' width='27'></img> </p>
+									<p> <b>Divisa: </b>  &nbsp;	{noticia.country.currency} </p>
+									<p> <b>Fuente: </b> &nbsp;	{noticia.source} </p> 
 								</div>
 								
 								<div class= "masinfo" > 
-									<p> {datos.texto} </p> 
+									<p> {noticia.description} </p> 
 								</div>
 
 							</div>
@@ -58,7 +57,7 @@ export const Registro = (datos) => {
 
 			</tr>
 
-		</React.Fragment>
+		</>
 
 	);
-};
+}

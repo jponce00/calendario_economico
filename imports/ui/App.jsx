@@ -1,10 +1,23 @@
 import React from 'react';
 import { Data } from './Data.jsx';
+import {withTracker} from 'meteor/react-meteor-data';
 
-export const App = () => (
-	<div>
+import {News} from '../api/Noticias/Noticia';
 
-		<Data/>
+function App({noticias}) {
+	return (
+		<div>		
+			
+			<Data noticias={noticias} />
 
-	</div>
-);
+		</div>
+	);
+}
+
+export default withTracker(() => {
+	Meteor.subscribe('news.list');
+	return {
+		noticias: News.find({
+		}).fetch()
+	}
+})(App);
