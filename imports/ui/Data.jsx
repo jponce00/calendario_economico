@@ -3,8 +3,7 @@ import {Tabla} from './Tabla';
 
 export function Data({noticias}) {
 
-	const [mostrarComponente, setMostrarComponente] = useState(false);
-	const [mostrarComponente2, setMostrarComponente2] = useState(false);
+	// Opciones de importancia
 	const [chkBaja, setChkBaja] = useState(false);
 	const [chkAlta, setChkAlta] = useState(false);
 	const [chkMedia, setChkMedia] = useState(false);
@@ -19,113 +18,10 @@ export function Data({noticias}) {
 	const [opcionHoy, setOpcionHoy] = useState(true);
 	const [opcionManana, setOpcionManana] = useState(false);
 
-	//Se obtienen los datos de los filtros Importancia y Región
-	const [numeroregionglobal, setnumeroregionglobal] = useState(0);
-	const [valores_region, setvalores_region] = useState([""]);
-	const [numeroimportanciaglobal, setnumeroimportanciaglobal] = useState(0);
-	const [valores_importancia, setvalores_importancia] = useState([""]);
-
-
 	let noticiasFiltro = noticias;
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	// $(".mandarfiltro").click(function() { 
-	  
-	//   var numeroregion = $(".chec_region:checked").length; //Creamos una Variable y Obtenemos el Numero de Checkbox que esten Seleccionados
-	  
-	//   setnumeroregionglobal(numeroregion);
-	//   // obtener valores de lo checbox
-	//   var valores = new Array();
-	//   var numeroimportancia = 0
-
-	//   //OBTENESMOS LOS VALORES EN FORMA DE ARRAY DEL FILTRO DE REGION
-	//       $('.chec_region:checked').each(function() {
-	//         valores.push($(this).val());
-	//       });
-	//       setvalores_region(valores)
-
-	//       //OBTENEMOS LA CANTIDAD DE CHECBOX  DEL FILTRO DE IMPORTANCIA
-	//       numeroimportancia = $(".chec_importancia:checked").length;
-
-		  
-	//       setnumeroimportanciaglobal(numeroimportancia);
-
-	//       //obtenesmo los valores en forma de array del filtro de IMPORTANCIA DE LA NOTICIA
-	//       var valoresimportancia = new Array();
-	//       $('.chec_importancia:checked').each(function() {
-	//         valoresimportancia.push($(this).val());
-	//       });
-	//       setvalores_importancia(valoresimportancia)
-	//       console.log("bucle n")
-	// })
-	// termina  .......................................
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	//Obtener todos los datos
-	function todosdatos(){
-
-		//Creamos una variable y obtenemos el número de Checkbox que estén seleccionados en el filtro de Región
-		var numeroregion = $(".chec_region:checked").length; 
-		
-		setnumeroregionglobal(numeroregion);
-		
-		//Obtener valores de lo checbox
-		var valores = new Array();
-		var numeroimportancia = 0
-
-		//Obtenemos los valores en forma de Array en el filtro de Región
-			$('.chec_region:checked').each(function() {
-			  valores.push($(this).val());
-			});
-			setvalores_region(valores)
-
-			//Obtenemos la cantidad del checkbox del filtro de Región
-			numeroimportancia = $(".chec_importancia:checked").length;
-
-			setnumeroimportanciaglobal(numeroimportancia);
-
-			//Obtenermos los valores en dorma de Array del filtro Importancia de la noticia
-			var valoresimportancia = new Array();
-			$('.chec_importancia:checked').each(function() {
-			  valoresimportancia.push($(this).val());
-			});
-			setvalores_importancia(valoresimportancia)
-			console.log("bucle n")
-	  }
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// funion de chec selecionados numero IMPORTANCIA 
-        // const [numeroimportanciaglobal, setnumeroimportanciaglobal] = useState(0);
-
-        // $(".butonprimer").ready(function() { 
-          // var numeroimportancia = 0
-          // numeroimportancia = $(".chec_importancia:checked").length; //Creamos una Variable y Obtenemos el Numero de Checkbox que esten Seleccionados
-          
-          // setnumeroimportanciaglobal(numeroimportancia);
-        // })
-// termina  .......................................
-
-  // funcion de chec, obtener valores de IMPORTANCIA
-                //const [valores_importancia, setvalores_importancia] = useState([""]);
-
-                // $(".butonprimer").ready(function() { 
-                //  // var valoresimportancia = new Array();
-
-                //   // $('.chec_importancia:checked').each(function() {
-                //   //   valoresimportancia.push($(this).val());
-                //   // });
-                //   // $(".chec_importancia:checked").each(function() {
-                //   //   alert($(this).val());
-                //   //  });
-                //   // console.log(valoresimportancia)
-                //   // setvalores_importancia(valoresimportancia)
-                  
-                // })
-// termina  .......................................
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	
 	//Función de Importancia de la noticia
 	function filtrarImportancia() {		
 		let baja = chkBaja ? 'BAJA' : null;
@@ -217,80 +113,37 @@ export function Data({noticias}) {
 	}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	
-  // $('.dropdown-menu').on('click', function (e) {
-  //   e.stopPropagation();
-  //   console.log(`${e.target.textContent} clicado!`);
-  // });
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	$(function () {
-		$('.sev_check').click(function(e) {
-		$('.sev_check').not(this).prop('checked', false);
-		});
-	});
-	
-	
-	const [newimportancia, setnewimportancia] = useState("0");
-	
-	const cambioimportancia = e=>{
-		setnewimportancia(e.target.value);
-	}
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	// $('input:radio[name="solo"]').change(
-	//   function(){
-	//       if (this.checked && this.value == '1') {
-	//         setsolo("bajo")
-	//       }
-	//       if (this.checked && this.value == '2') {
-			
-	//       }
-	//       if (this.checked && this.value == '3') {
-	//         setsolo("bajo")
-	//       }
-	// });
-	
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//  Condicionales de los filtros
-
-
-//********************************************************************************************** */
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	return (
 
 		//Contenedor principal
 		<div className="contenedor-todo">
 
-
 			{/* CONTENEDOR GRIS */}
 			<div className="menu"> 
 				{/* <h1>CONTENEDOR GRIS</h1> */}
-			</div>	
+			</div>
 			
 			{/* Espacio entre el contener gris y el Breaking News */}
 			<br /> 
 
 			{/* Contenedor de Breaking News */}
-			
 			<div class = "semueve ">
         
-		<div class="row ">
-		  <div class="col-md-12 ">
-			  <div class="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
-				  <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew "><span class="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'class = "flecha " /> </div>
-				  <marquee class="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> <b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a> 
-					 
-				  </marquee>
-			  </div>
-		  </div>
-	  </div>
-  
-		</div>
+				<div class="row ">
+					<div class="col-md-12 ">
+						<div class="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
+							<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
+								<span class="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'class = "flecha " /> 
+							</div>
+							<marquee class="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
+								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a> 
+							</marquee>
+						</div>
+					</div>
+				</div>
+
+			</div>
         
 
 
@@ -298,7 +151,9 @@ export function Data({noticias}) {
 			{/* Contenedor de Calendario Económico */}
 			<div className=' container titulo' >
 				<h1>Calendario Económico</h1>
-				<p>Utilice nuestro calendario económico para explorar eventos globales clave en el <br /> horizonte que podrían cambiar sutilmente o sacudir sustancialmente los mercados <br /> financieros.</p>
+				<p>
+					Utilice nuestro calendario económico para explorar eventos globales clave en el <br /> horizonte que podrían cambiar sutilmente o sacudir sustancialmente los mercados <br /> financieros.
+				</p>
 			</div>
 
 			 {/* Contenedor de Fechas */}
@@ -307,155 +162,49 @@ export function Data({noticias}) {
 				<div className="containerfecha">
 					
 					<div className="rowfecha">
-                 
-						  {/* Ayer */}
-                          <label className='labelfecha'>
-                            <input type="radio" name="fecha" className='inputfecha' checked={opcionAyer} onChange={seleccionAyer} />
-                            <div className="icon-box">
-                            <img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
-                              <span className='spanfecha' >AYER</span>
-                            </div>
-                          </label>
+
+						{/* Ayer */}
+						<label className='labelfecha'>
+							<input type="radio" name="fecha" className='inputfecha' checked={opcionAyer} onChange={seleccionAyer} />
+							<div className="icon-box">
+								<img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
+								<span className='spanfecha' >AYER</span>
+							</div>
+						</label>
 
                           {/* Hoy */}
-                          <label className='labelfecha'>
-                            <input type="radio" name="fecha" className='inputfecha' value="true" checked={opcionHoy} onChange={seleccionHoy} />
-                            <div className="icon-box">
-                            <img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
-                              <span className='spanfecha' >HOY</span>
-                            </div>
-                          </label>
+						<label className='labelfecha'>
+							<input type="radio" name="fecha" className='inputfecha' value="true" checked={opcionHoy} onChange={seleccionHoy} />
+							<div className="icon-box">
+								<img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
+								<span className='spanfecha' >HOY</span>
+							</div>
+						</label>
 
                           {/* Mañana */}
-                          <label className='labelfecha'>
-                            <input type="radio" name="fecha" className='inputfecha' checked={opcionManana} onChange={seleccionManana} />
-                            <div className="icon-box">
-                            <img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
-                              <span className='spanfecha' >MAÑANA</span>
-                            </div>
-                          </label>
+						<label className='labelfecha'>
+							<input type="radio" name="fecha" className='inputfecha' checked={opcionManana} onChange={seleccionManana} />
+							<div className="icon-box">
+								<img src="https://cdn-icons-png.flaticon.com/512/42/42449.png" alt="" height='33' width='30'></img>
+								<span className='spanfecha' >MAÑANA</span>
+							</div>
+						</label>
 
-                	</div>
-              	</div>
-        	</div>
+					</div>
+				</div>
+			</div>
         {/* termina filtro de fecha */}
 
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-		{/* <div className='container'>
-
-        <div class="dropdown">
-            <button class="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            IMPORTANCIA <div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              
-            <div class = "rellenar"></div>
-              <a class="dropdown-item" id='chec' href="#">
-              <div>
-                  <input class="custom-checkbox" type="radio" id="chkbx_1" value="1" name="solo" 
-                  checked = {newimportancia == 1 ? true:false }  onChange={cambioimportancia}
-                  />
-                  <label for="chkbx_1">
-                   <div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsalto">H</div> &nbsp;&nbsp; ALTA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.
-                   
-                  </label>
-                  
-              </div>
-              </a>
-              <a class="dropdown-item" id='chec' href="#">
-                    <div>
-                        <input class="custom-checkbox" type="radio" id="chkbx_2" value="2"  name="solo" 
-                        checked = {newimportancia == 2 ? true:false } onChange={cambioimportancia}
-                        />
-                        <label for="chkbx_2">
-                        <div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
-                        
-                        </label>
-                        
-                    </div>
-              </a>
-          
-               <a class="dropdown-item" id='chec' href="#">
-                    <div>
-                        <input class="custom-checkbox" type="radio" id="chkbx_3" value="3"  name="solo"
-                        checked = {newimportancia == 3 ? true:false }  onChange={cambioimportancia}
-                        />
-                        <label for="chkbx_3">
-                        <div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.
-                        
-                        </label>
-                        
-                    </div>
-                </a>
-              
-                    
-            </div>
-          </div>
-
-        </div> */}
-
-{/* //----------------------------------------------------------------------------------------------------------------------------------------- */}
-
 											{/* ESTE ES EL VIEJO BUTON DE FILTRO DE IMPORTANCIA  NO ARREGLADO*/}
 
 			{/* Contenedor de Filtros */}
-			<div className='menufilt container'>
-				
-				{/* Filtro de Importancia */}
-				{/* </div><div className=' container'> */}
-
-					{/* Botón */}
-					{/* <div className="dropdown">
-						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						IMPORTANCIA <div className = "import">  </div> &nbsp; 
-						</button>
-
-						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton"> */}
-						
-							{/* Opción Alta */}
-							{/* <a className="dropdown-item" id='chec' href="#">
-								<div>
-									<input className="custom-checkbox" type="checkbox" id="chkbx_1" value="false" checked={chkAlta} 
-									onChange={handleOnChangeChkAlta}/>
-									<label for="chkbx_1">
-										<div className = "chetodo"> <span></span>  <div className = "nosalto ">  <div className = "sinsalto">H</div> &nbsp;&nbsp; ALTA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.
-									</label>									
-								</div>
-							</a> */}
-
-							{/* Opción Medio */}
-							{/* <a className="dropdown-item" id='chec' href="#">
-								<div>
-									<input className="custom-checkbox" type="checkbox" id="chkbx_2" value="false" checked={chkMedia} 
-									onChange={handleOnChangeChkMedia}/>
-									<label for="chkbx_2">
-										<div className = "chetodo"> <span></span>  <div className = "nosalto ">  <div className = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
-									</label>									
-								</div>
-							</a> */}
-
-							{/* Opción Bajo */}
-							{/* <a className="dropdown-item" id='chec' href="#">
-								<div>
-									<input className="custom-checkbox" type="checkbox" id="chkbx_3" value="false" checked={chkBaja} 
-									onChange={handleOnChangeChkBaja}/>
-									<label for="chkbx_3">
-										<div className = "chetodo"> <span></span>  <div className = "nosalto ">  <div className = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.										
-									</label>										
-								</div>
-							</a>
-
-						</div>
-					</div>
-				</div> */}
-
-
-
+			<div className='menufilt container'>								
 					{/* ''''''''''''''''ESTE ES EL NUEVO YA ARREGLADO '''''''''''''' */}
 
-										<div className=' container '>
+				<div className=' container '>
 
 					{/* <div class = "sinsalto altofiltro">H</div>
 					<div class = "sinsaltomedio mediofiltro">M</div>
@@ -463,69 +212,73 @@ export function Data({noticias}) {
 					<div class="vertical-line" > </div> */}
 					<div class="dropdown butonprimer">
 						<button class="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						IMPORTANCIA &nbsp;&nbsp;&nbsp;<div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
+							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							
-						<div class = "rellenar"></div>
-						<div class = "rellenar2"></div>
+							<div class = "rellenar"></div>
+							<div class = "rellenar2"></div>
+
 							<form role="form">
+								<a class="dropdown-item" id='chec' href="#">
+
+									<div>
+										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
+										onChange={handleOnChangeChkAlta}/>
+										<label for="chkbx_1 s_fac1" class="form-checkbox form-icon">
+											<div class = "chetodo"> <span></span> 
+												<div class = "nosalto ">  
+													<div class = "sinsalto">H</div> &nbsp;&nbsp; ALTA  
+												</div> 
+											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.								
+										</label>								
+									</div>
+
+								</a>
 
 
-							<a class="dropdown-item" id='chec' href="#">
+								<a class="dropdown-item" id='chec' href="#">
 
-							<div>
-								<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
-								onChange={handleOnChangeChkAlta}/>
-								<label for="chkbx_1 s_fac1" class="form-checkbox form-icon">
-								<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsalto">H</div> &nbsp;&nbsp; ALTA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.
-								
-								</label>
-								
-							</div>
+									<div>
+										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_2 s_fac2" value="false" checked={chkMedia} name="filimportancia"
+										onChange={handleOnChangeChkMedia}/>
+										<label for="chkbx_2 s_fac2" class="form-checkbox form-icon">
+											<div class = "chetodo"> <span></span>  
+												<div class = "nosalto ">  
+													<div class = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO
+												</div> 
+											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
+										</label>
+										
+									</div>
 
-							</a>
-
-
-							<a class="dropdown-item" id='chec' href="#">
-
-								<div>
-									<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_2 s_fac2" value="false" checked={chkMedia} name="filimportancia"
-									onChange={handleOnChangeChkMedia}/>
-									<label for="chkbx_2 s_fac2" class="form-checkbox form-icon">
-									<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO</div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
-									
-									</label>
-									
-								</div>
-
-							</a>
+								</a>
 
 
-						
+							
 
-							<a class="dropdown-item" id='chec' href="#">
+								<a class="dropdown-item" id='chec' href="#">
 
-								<div>
-									<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_3 s_fac3" value="false" checked={chkBaja} name="filimportancia"
-									onChange={handleOnChangeChkBaja}/>
-									<label for="chkbx_3 s_fac3" class="form-checkbox form-icon">
-									<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.
-									
-									</label>
-									
-								</div>
+									<div>
+										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_3 s_fac3" value="false" checked={chkBaja} name="filimportancia"
+										onChange={handleOnChangeChkBaja}/>
+										<label for="chkbx_3 s_fac3" class="form-checkbox form-icon">
+											<div class = "chetodo"> <span></span>  
+												<div class = "nosalto ">  
+													<div class = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  
+												</div> 
+											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.
+										</label>									
+									</div>
 
-							</a>
+								</a>
+
 							</form>
 							
-								
-
 						</div>
-						</div>
-
-
 					</div>
+
+
+				</div>
 
 
 
@@ -544,7 +297,8 @@ export function Data({noticias}) {
 					{/* Botón */}
 					<div className="dropdown dropdownregion ">
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;REGIÓN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
+							&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;REGIÓN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
 
 						<div className="dropdown-menu dropdown-menuregion" aria-labelledby="dropdownMenuButton">
@@ -560,7 +314,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_4 s_fac1" value="america" checked={opcionAmerica} 
 										onChange={seleccionAmerica}/>
 										<label for="chkbx_4 s_fac1" class="form-checkbox form-icon">
-										<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "america"> <img src="https://as2.ftcdn.net/v2/jpg/03/05/31/79/1000_F_305317913_RLtEYk6lfa5gbsdC2gdndH0LfqhJuwLB.jpg" alt="" height='29' width='27'></img> </div> &nbsp; AMÉRICA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a los United States , Canada ,  Mexico , Brazil y Colombia
+											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "america"> <img src="https://as2.ftcdn.net/v2/jpg/03/05/31/79/1000_F_305317913_RLtEYk6lfa5gbsdC2gdndH0LfqhJuwLB.jpg" alt="" height='29' width='27'></img> </div> &nbsp; AMÉRICA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a los United States , Canada ,  Mexico , Brazil y Colombia
 										</label>
 									</div>
 								</a>
@@ -571,7 +325,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_5 s_fac2" value="europa" checked={opcionEuropa} 
 										onChange={seleccionEuropa}/>
 										<label for="chkbx_5 s_fac2" class="form-checkbox form-icon">
-										<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Germany,France,Spain,Italy,Greece,Austria,Ireland,Finland,Netherlands,Portugal y Belgium
+											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Germany,France,Spain,Italy,Greece,Austria,Ireland,Finland,Netherlands,Portugal y Belgium
 										</label>
 									</div>
 								</a>
@@ -582,7 +336,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_6 s_fac3" value="asia" checked={opcionAsia} 
 										onChange={seleccionAsia}/>
 										<label for="chkbx_6 s_fac3" class="form-checkbox form-icon">
-										<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japan,Australia,New Zealand,China,India,South Korea,Thailand,Indonesia y Philippines
+											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japan,Australia,New Zealand,China,India,South Korea,Thailand,Indonesia y Philippines
 										</label>	
 									</div>
 								</a>
@@ -594,11 +348,6 @@ export function Data({noticias}) {
 
 {/* //--------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-			{/* <button class="btn btn-primary  mandarfiltro" type="submit" onClick={todosdatos}>Button</button> */}
-			
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------- */}
-
-
 			{/* Contenedor de la Tabla */}
 			<div className="container contenedor-tabla">							
 				{/* Mandar a llamar al componente tabla */}
@@ -606,124 +355,49 @@ export function Data({noticias}) {
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-
-					{/* <div class="dropdown">
-					<button class="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					IMPORTANCIA <div class = "import">  </div> &nbsp; <div class="vertical-line" > </div> &nbsp;&nbsp;
-					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					
-					
-					<a class="dropdown-item" id='chec' href="#">
-
-					<div>
-						<input class="custom-checkbox" type="checkbox" id="chkbx_1" value="false" checked={probar} 
-						onChange={handleOnChange}/>
-						<label for="chkbx_1">
-						<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsalto">H</div> &nbsp;&nbsp; ALTA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.
-						
-						</label>
-						
-					</div>
-
-					</a>
-
-					<a class="dropdown-item" id='chec' href="#">
-
-							<div>
-								<input class="custom-checkbox" type="checkbox" id="chkbx_2" value="false" checked={probar1} 
-								onChange={handleOnChange1}/>
-								<label for="chkbx_2">
-								<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
-								
-								</label>
-								
-							</div>
-
-					</a>
-
-					<a class="dropdown-item" id='chec' href="#">
-
-							<div>
-								<input class="custom-checkbox" type="checkbox" id="chkbx_3" value="false" checked={probar2} 
-								onChange={handleOnChange2}/>
-								<label for="chkbx_3">
-								<div class = "chetodo"> <span></span>  <div class = "nosalto ">  <div class = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.
-								
-								</label>
-								
-							</div>
-
-						</a>
-
-					</div>
-				</div> */}
-				
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-
-				{/* PARA PROBAR COSAS */}
-				<div className=' espacio '>
-
-                
-				</div>
-					
-
-           		
-      
-          
-			
-				<br />
-				<br />
-				<br />
-
-
-				
-			
-
 			{/* Cierre de contenedor tabla */}
 			</div>
 			{/* Cierre de contenedor principal */}
 
 				        {/* parte del footer de la pagina */}
 
-      
-					<footer class="site-footer">
-							<div class="container">
-								<div class="row">
-								<div class="col-sm-12 col-md-12">
-									<h6>Aviso legal:</h6>
-									<p class="text-justify">Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido, y pueden no ser adecuadas para todos los inversores. Los precios de las criptomonedas son extremadamente volátiles y pueden verse afectados por factores externos de tipo financiero, regulatorio o político. Operar sobre márgenes aumenta los riesgos financieros.
-									Antes de lanzarse a invertir en un instrumento financiero o criptomoneda, infórmese debidamente de los riesgos y costes asociados a este tipo operaciones en los mercados financieros. Fije unos objetivos de inversión adecuados a su nivel de experiencia y su apetito por el riesgo y, siempre que sea necesario, busque asesoramiento profesional.
-									Fusion Media quiere recordarle que la información contenida en este sitio web no se ofrece necesariamente ni en tiempo real ni de forma exacta. Los datos y precios de la web no siempre proceden de operadores de mercado o bolsas, por lo que los precios podrían diferir del precio real de cualquier mercado. Son precios orientativos que en ningún caso deben utilizarse con fines bursátiles. Ni Fusion Media ni ninguno de los proveedores de los datos de esta web asumen responsabilidad alguna por las pérdidas o resultados perniciosos de sus operaciones basados en su confianza en la información contenida en la web.
-									Queda prohibida la total reproducción, modificación, transmisión o distribución de los datos publicados en este sitio web sin la autorización previa por escrito de Fusion Media y/o del proveedor de los mismos. Todos los derechos de propiedad intelectual están reservados a los proveedores y/o bolsa responsable de dichos los datos.
-									</p>
-								</div>
 
-
-								
-								</div>
-								<hr />
+			<footer class="site-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12 col-md-12">
+								<h6>Aviso legal:</h6>
+								<p class="text-justify">Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido, y pueden no ser adecuadas para todos los inversores. Los precios de las criptomonedas son extremadamente volátiles y pueden verse afectados por factores externos de tipo financiero, regulatorio o político. Operar sobre márgenes aumenta los riesgos financieros.
+								Antes de lanzarse a invertir en un instrumento financiero o criptomoneda, infórmese debidamente de los riesgos y costes asociados a este tipo operaciones en los mercados financieros. Fije unos objetivos de inversión adecuados a su nivel de experiencia y su apetito por el riesgo y, siempre que sea necesario, busque asesoramiento profesional.
+								Fusion Media quiere recordarle que la información contenida en este sitio web no se ofrece necesariamente ni en tiempo real ni de forma exacta. Los datos y precios de la web no siempre proceden de operadores de mercado o bolsas, por lo que los precios podrían diferir del precio real de cualquier mercado. Son precios orientativos que en ningún caso deben utilizarse con fines bursátiles. Ni Fusion Media ni ninguno de los proveedores de los datos de esta web asumen responsabilidad alguna por las pérdidas o resultados perniciosos de sus operaciones basados en su confianza en la información contenida en la web.
+								Queda prohibida la total reproducción, modificación, transmisión o distribución de los datos publicados en este sitio web sin la autorización previa por escrito de Fusion Media y/o del proveedor de los mismos. Todos los derechos de propiedad intelectual están reservados a los proveedores y/o bolsa responsable de dichos los datos.
+								</p>
 							</div>
-							<div class="container">
-								<div class="row">
-								<div class="col-md-8 col-sm-6 col-xs-12">
-									<p  class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
-								<a href="#">HOLA MUNDO</a>.
-									</p>
-								</div>
+						</div>
 
-								<div class="col-md-4 col-sm-6 col-xs-12">
-									<ul class="social-icons">
+						<hr />
+
+					</div>
+
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-sm-6 col-xs-12">
+								<p  class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+									<a href="#">HOLA MUNDO</a>.
+								</p>
+							</div>
+
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<ul class="social-icons">
 									<li><a class="facebook" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="" height='39' width='39' /> </a></li>
 									<li><a class="twitter" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/4494/4494481.png" alt="" height='39' width='39' />  </a></li>
 									<li><a class="dribbble" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494489.png" alt="" height='39' width='39' />   </a></li>
 									<li><a class="linkedin" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494485.png" alt="" height='39' width='39' />   </a></li>   
-									</ul>
-								</div>
-								</div>
+								</ul>
 							</div>
-						</footer>
-
+						</div>
+					</div>
+			</footer>
 
 		</div>
 	);
