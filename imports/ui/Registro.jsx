@@ -12,7 +12,7 @@ export function Registro({noticia}) {
 			<tr>
 				<td> {noticia.hour}:{noticia.minutes} </td>
 				<td>
-					<img src={noticia.country.country} alt="" height='27' width='27'></img>
+					<img src={noticia.country.flag} alt="" height='27' width='27'></img>
 				</td>
 				<td>
 					<div class= {noticia.importance}>
@@ -40,7 +40,7 @@ export function Registro({noticia}) {
 
 								<div class='descripcion' >
 									<p> <b> Imp: </b> &nbsp; <div class= {noticia.importance}>{noticia.importance}</div> </p>
-									<p> <b>País: </b> &nbsp; &nbsp;&nbsp;<img src= {noticia.country.country} alt="" height='27' width='27'></img> </p>
+									<p> <b>País: </b> &nbsp; &nbsp;&nbsp;<img src= {noticia.country.flag} alt="" height='27' width='27'></img> </p>
 									<p> <b>Divisa: </b>  &nbsp;	{noticia.country.currency} </p>
 									<p> <b>Fuente: </b> &nbsp;	{noticia.source} </p> 
 								</div>

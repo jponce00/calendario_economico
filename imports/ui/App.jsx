@@ -17,7 +17,8 @@ function App({noticias}) {
 export default withTracker(() => {
 	Meteor.subscribe('news.list');
 	return {
-		noticias: News.find({
+		noticias: News.find({}, {
+			sort: {hour:1, minutes:1}
 		}).fetch()
 	}
 })(App);

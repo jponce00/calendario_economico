@@ -7,7 +7,7 @@ export function Tabla({noticias}) {
             <thead>
                 <tr>						
                     <th scope="col">Hora</th>
-                    <th scope="col">Pais</th>
+                    <th scope="col">País</th>
                     <th scope="col">Importancia</th>
                     <th scope="col">Evento</th>
                     <th scope="col">Actual</th>

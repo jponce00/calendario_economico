@@ -34,7 +34,7 @@ body {
 }
 
 
-.MEDIO{
+.MEDIA{
 
   background-color: #e77200;
   width: 85px;
@@ -49,7 +49,7 @@ body {
 }
 
 
-.BAJO{
+.BAJA{
 
   background-color: #84c6ed;
   width: 85px;
@@ -834,6 +834,7 @@ label{
 .site-footer{
 	background-color: #30373d;
 	color: white;
+  margin: -10px;
 }
 
 /* termina la parte del footer */

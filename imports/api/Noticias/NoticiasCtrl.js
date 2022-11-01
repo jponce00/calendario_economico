@@ -17,7 +17,8 @@ new ValidatedMethod({
             country: {
                 country: String,
                 region: String,
-                currency: String
+                currency: String,
+                flag: String
             },
             hour: String,
             minutes: String,

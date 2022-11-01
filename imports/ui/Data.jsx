@@ -314,7 +314,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_4 s_fac1" value="america" checked={opcionAmerica} 
 										onChange={seleccionAmerica}/>
 										<label for="chkbx_4 s_fac1" class="form-checkbox form-icon">
-											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "america"> <img src="https://as2.ftcdn.net/v2/jpg/03/05/31/79/1000_F_305317913_RLtEYk6lfa5gbsdC2gdndH0LfqhJuwLB.jpg" alt="" height='29' width='27'></img> </div> &nbsp; AMÉRICA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a los United States , Canada ,  Mexico , Brazil y Colombia
+											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "america"> <img src="https://as2.ftcdn.net/v2/jpg/03/05/31/79/1000_F_305317913_RLtEYk6lfa5gbsdC2gdndH0LfqhJuwLB.jpg" alt="" height='29' width='27'></img> </div> &nbsp; AMÉRICA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a los Estados Unidos, Canadá , México, Brasil, Colombia, entre otros.
 										</label>
 									</div>
 								</a>
@@ -325,7 +325,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_5 s_fac2" value="europa" checked={opcionEuropa} 
 										onChange={seleccionEuropa}/>
 										<label for="chkbx_5 s_fac2" class="form-checkbox form-icon">
-											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Germany,France,Spain,Italy,Greece,Austria,Ireland,Finland,Netherlands,Portugal y Belgium
+											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Alemania, Francia, España, Italia, Grecia, Austria, Irlanda, Finlandia, Países Bajos, Portugal, Bélgica y más.
 										</label>
 									</div>
 								</a>
@@ -336,7 +336,7 @@ export function Data({noticias}) {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_6 s_fac3" value="asia" checked={opcionAsia} 
 										onChange={seleccionAsia}/>
 										<label for="chkbx_6 s_fac3" class="form-checkbox form-icon">
-											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japan,Australia,New Zealand,China,India,South Korea,Thailand,Indonesia y Philippines
+											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japón, Australia, Nueva Zelanda, China, India, Corea del Sur, Tailandia, Indonesia, Filipinas, entre otros.
 										</label>	
 									</div>
 								</a>
@@ -359,8 +359,7 @@ export function Data({noticias}) {
 			</div>
 			{/* Cierre de contenedor principal */}
 
-				        {/* parte del footer de la pagina */}
-
+			{/* parte del footer de la pagina */}
 
 			<footer class="site-footer">
 					<div class="container">
@@ -382,8 +381,8 @@ export function Data({noticias}) {
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8 col-sm-6 col-xs-12">
-								<p  class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
-									<a href="#">HOLA MUNDO</a>.
+								<p  class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+									<a href="#"> HOLA MUNDO</a>.
 								</p>
 							</div>
 
