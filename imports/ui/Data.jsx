@@ -1,4 +1,6 @@
+// @ts-nocheck
 import React, { useState } from 'react';
+import { Formulario } from './Formulario';
 import {Tabla} from './Tabla';
 
 
@@ -150,15 +152,15 @@ export function Data({noticias}) {
 			<br /> 
 
 			{/* Contenedor de Breaking News */}
-			<div class = "semueve ">
+			<div className = "semueve ">
         
-				<div class="row ">
-					<div class="col-md-12 ">
-						<div class="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
-							<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
-								<span class="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'class = "flecha " /> 
+				<div className="row ">
+					<div className="col-md-12 ">
+						<div className="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
+							<div className="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
+								<span className="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'className = "flecha " /> 
 							</div>
-							<marquee class="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
+							<marquee className="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
 								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a> 
 							</marquee>
 						</div>
@@ -232,19 +234,19 @@ export function Data({noticias}) {
 					<div class = "sinsaltomedio mediofiltro">M</div>
 					<div class = "sinsaltobajo bajofiltro">B</div>
 					<div class="vertical-line" > </div> */}
-					<div class="dropdown butonprimer">
-						<button class="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div className="dropdown butonprimer">
+						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<div class = "rellenar"></div>
-							<div class = "rellenar2"></div>
+						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<div className = "rellenar"></div>
+							<div className = "rellenar2"></div>
 
 							<form role="form">
-								<a class="dropdown-item" id='chec' href="#">
+								<a className="dropdown-item" id='chec' href="#">
 
 									<div>
-										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
+										<input className="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
 										onChange={handleOnChangeChkAlta}/>
 										<label for="chkbx_1 s_fac1" class="form-checkbox form-icon">
 											<div class = "chetodo"> <span></span> 
@@ -376,6 +378,8 @@ export function Data({noticias}) {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : filtrarFecha() ? noticiasFiltro : noticias} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+				<Formulario/>
+{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}
 			</div>
@@ -383,7 +387,7 @@ export function Data({noticias}) {
 
 
 					{/* ARTE DEL FORM DEL ADMINISTRADOR */}
-					<div class="">
+					{/* <div class="">
 
 
 						<form >
@@ -475,10 +479,11 @@ export function Data({noticias}) {
 
 
 
-					</div>
+					</div> */}
 					{/* TERMINA PARTE ARTE DEL FORM DEL ADMINISTRADOR */}
 
 
+{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 
 
