@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Tabla} from './Tabla';
 
+
 export function Data({noticias}) {
 
 	// Opciones de importancia
@@ -111,6 +112,27 @@ export function Data({noticias}) {
 		setOpcionManana( !opcionManana );
 		filtrarFecha();
 	}
+
+	// FUNCIONES DE FORM 
+	const [inputs, setInputs] = useState({});
+
+	const handleChange = (event) => {
+	  const name = event.target.name;
+	  const value = event.target.value;
+	  setInputs(values => ({...values, [name]: value}))
+	}
+  
+	// FUNCION PARA PROBAR SI SE OBTIENEN LOS DATOS QUITAR onSubmit={handleSubmit} DEL form cuando ya no lo ocupen
+	// const handleSubmit = (event) => {
+	//   event.preventDefault();
+	//   console.log(inputs);
+	// }
+
+	// AQUI MANDARIAMOS LOS DATOS DEL FORM ALA BASE DE DATOS 
+	const mandardatosform = () =>{
+		console.log(inputs);
+	}
+	// TERMINA FUNCIONES DE FORM 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -358,6 +380,107 @@ export function Data({noticias}) {
 			{/* Cierre de contenedor tabla */}
 			</div>
 			{/* Cierre de contenedor principal */}
+
+
+					{/* ARTE DEL FORM DEL ADMINISTRADOR */}
+					<div class="">
+
+
+						<form >
+
+						<div class="wrapper rounded bg-white">
+
+								<div class="h3"> Form</div>
+
+								<div class="form">
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Pais</label>
+											<input type="text" class="form-control" name='Pais' value={inputs.Pais || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Evento</label>
+											<input type="text" class="form-control" name='Evento' value={inputs.Evento || ""} onChange={handleChange} required/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Hora</label>
+											<input type="text" class="form-control" name='Hora' value={inputs.Hora || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Importancia</label>
+											<div class="d-flex align-items-center mt-2">
+											<select id="sub" name='Importancia' value={inputs.Importancia || ""} onChange={handleChange} required>
+											<option value="" selected hidden></option>
+											<option value="ALTA">ALTA</option>
+											<option value="MEDIA">MEDIA</option>
+											<option value="BAJA">BAJA</option>
+										
+										</select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Actual</label>
+											<input type="text" class="form-control" name='Actual' value={inputs.Actual || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Previsión</label>
+											<input type="text" class="form-control" name='Prevision' value={inputs.Prevision || ""} onChange={handleChange} required/>
+										</div>
+										</div>
+										<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Anterior</label>
+											<input type="text" class="form-control" name='Anterior' value={inputs.Anterior || ""} onChange={handleChange} required/>
+										</div>
+
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>URL Bandera</label>
+											<input type="text" class="form-control" name='url' value={inputs.url || ""} onChange={handleChange} required/>
+										</div>
+
+
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Moneda</label>
+											<input type="text" class="form-control" name='Moneda' value={inputs.Moneda || ""} onChange={handleChange} required/>
+										</div>
+
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Fuente</label>
+											<input type="text" class="form-control" name='Fuente' value={inputs.Fuente || ""} onChange={handleChange} required/>
+										</div>
+
+
+									</div>
+
+
+									<div class=" my-md-2 my-3">
+										<label className='labelform'>Detalle de la noticia</label>
+										
+    									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='Detalle'
+										 value={inputs.Detalle || ""} onChange={handleChange}></textarea>
+									</div>
+									
+									<button type="submit" class="btn btn-primary botondefrom" onClick={mandardatosform} >Enviar</button>
+								</div>
+
+								</div>
+						</form>
+
+
+
+					</div>
+					{/* TERMINA PARTE ARTE DEL FORM DEL ADMINISTRADOR */}
+
+
+
+
 
 			{/* parte del footer de la pagina */}
 
