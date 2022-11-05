@@ -24,3 +24,5 @@ jquery
 mdg:validated-method
 check
 peerlibrary:middleware
+accounts-base
+accounts-password

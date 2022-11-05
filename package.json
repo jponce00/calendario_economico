@@ -4,7 +4,7 @@
   "scripts": {
     "start": "meteor run",
     "run:windows": "SET MONGO_URL=mongodb+srv://grupo3teya:bgTHbInaa8PYekFb@calendario.rhhtvfw.mongodb.net/?retryWrites=true&w=majority& meteor",
-    "run:mac": "MONGO_URL=mongodb+srv://grupo3teya:bgTHbInaa8PYekFb@calendario.rhhtvfw.mongodb.net/?retryWrites=true meteor",
+    "run:mac": "MONGO_URL=mongodb+srv://grupo3teya:bgTHbInaa8PYekFb@calendario.rhhtvfw.mongodb.net/?retryWrites=true&w=majority meteor",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"

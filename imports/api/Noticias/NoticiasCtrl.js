@@ -1,8 +1,8 @@
 import {Meteor} from 'meteor/meteor';
 import {check, Match} from 'meteor/check';
-import {News} from './Noticia';
 import {ResponseMessage} from '../../startup/server/utilities/ResponseMessage';
 import {ValidatedMethod} from 'meteor/mdg:validated-method';
+import NoticiasServ from './NoticiasServ';
 
 new ValidatedMethod({
     name: 'news.save',
@@ -31,27 +31,46 @@ new ValidatedMethod({
     },
     run(news) {
         const responseMessage = new ResponseMessage();
-        try {            
-            News.insert({
-                name: news.name,
-                importance: news.importance,
-                year: news.year,
-                month: news.month,
-                day: news.day,
-                createdAt: new Date(),
-                country: news.country,
-                hour: news.hour,
-                minutes: news.minutes,
-                actual: news.actual,
-                forecast: news.forecast,
-                previous: news.previous,
-                description: news.description,
-                source: news.source
-            });
-            responseMessage.create('Se creo la noticia exitosamente.');
+        if (news._id !== null) {
+            try {
+                NoticiasServ.updateNews(news);
+                responseMessage.create('Se actualizo la noticia exitosamente.');
+            } catch (exception) {
+                console.error('create.news', exception);
+                throw new Meteor.Error('500', 'Ocurrio un error al actualizar la noticia.');
+            }
+        } else {
+            try {            
+                NoticiasServ.createNews(news);
+                responseMessage.create('Se creo la noticia exitosamente.');
+            } catch (exception) {
+                console.error('create.news', exception);
+                throw new Meteor.Error('500', 'Ocurrio un error al crear la noticia.');
+            }
+        }
+        
+        return responseMessage;
+    }
+});
+
+new ValidatedMethod({
+    name: 'news.delete',
+    validate(news) {
+        try {
+            check(news._id, String);
         } catch (exception) {
             console.error('create.news', exception);
-            throw new Meteor.Error('403', 'Ocurrio un error al crear la noticia.');
+            throw new Meteor.Error('403', 'Los datos ingresados no son correctos..');
+        }
+    },
+    run(news) {
+        const responseMessage = new ResponseMessage();
+        try {
+            NoticiasServ.deleteNews(news._id);
+            responseMessage.create('Se elimino la noticia exitosamente.');
+        } catch (exception) {
+            console.error('create.news', exception);
+            throw new Meteor.Error('500', 'Ocurrio un error al eliminar la noticia.');
         }
         return responseMessage;
     }
