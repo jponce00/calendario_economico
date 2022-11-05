@@ -1,5 +1,8 @@
+// @ts-nocheck
 import React, { useState } from 'react';
+import { Formulario } from './Formulario';
 import {Tabla} from './Tabla';
+
 
 export function Data({noticias}) {
 
@@ -112,6 +115,27 @@ export function Data({noticias}) {
 		filtrarFecha();
 	}
 
+	// FUNCIONES DE FORM 
+	const [inputs, setInputs] = useState({});
+
+	const handleChange = (event) => {
+	  const name = event.target.name;
+	  const value = event.target.value;
+	  setInputs(values => ({...values, [name]: value}))
+	}
+  
+	// FUNCION PARA PROBAR SI SE OBTIENEN LOS DATOS QUITAR onSubmit={handleSubmit} DEL form cuando ya no lo ocupen
+	// const handleSubmit = (event) => {
+	//   event.preventDefault();
+	//   console.log(inputs);
+	// }
+
+	// AQUI MANDARIAMOS LOS DATOS DEL FORM ALA BASE DE DATOS 
+	const mandardatosform = () =>{
+		console.log(inputs);
+	}
+	// TERMINA FUNCIONES DE FORM 
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	return (
@@ -128,15 +152,15 @@ export function Data({noticias}) {
 			<br /> 
 
 			{/* Contenedor de Breaking News */}
-			<div class = "semueve ">
+			<div className = "semueve ">
         
-				<div class="row ">
-					<div class="col-md-12 ">
-						<div class="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
-							<div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
-								<span class="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'class = "flecha " /> 
+				<div className="row ">
+					<div className="col-md-12 ">
+						<div className="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
+							<div className="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
+								<span className="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'className = "flecha " /> 
 							</div>
-							<marquee class="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
+							<marquee className="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
 								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a> 
 							</marquee>
 						</div>
@@ -210,19 +234,19 @@ export function Data({noticias}) {
 					<div class = "sinsaltomedio mediofiltro">M</div>
 					<div class = "sinsaltobajo bajofiltro">B</div>
 					<div class="vertical-line" > </div> */}
-					<div class="dropdown butonprimer">
-						<button class="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div className="dropdown butonprimer">
+						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<div class = "rellenar"></div>
-							<div class = "rellenar2"></div>
+						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<div className = "rellenar"></div>
+							<div className = "rellenar2"></div>
 
 							<form role="form">
-								<a class="dropdown-item" id='chec' href="#">
+								<a className="dropdown-item" id='chec' href="#">
 
 									<div>
-										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
+										<input className="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
 										onChange={handleOnChangeChkAlta}/>
 										<label for="chkbx_1 s_fac1" class="form-checkbox form-icon">
 											<div class = "chetodo"> <span></span> 
@@ -354,10 +378,114 @@ export function Data({noticias}) {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : filtrarFecha() ? noticiasFiltro : noticias} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+				<Formulario/>
+{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}
 			</div>
 			{/* Cierre de contenedor principal */}
+
+
+					{/* ARTE DEL FORM DEL ADMINISTRADOR */}
+					{/* <div class="">
+
+
+						<form >
+
+						<div class="wrapper rounded bg-white">
+
+								<div class="h3"> Form</div>
+
+								<div class="form">
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Pais</label>
+											<input type="text" class="form-control" name='Pais' value={inputs.Pais || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Evento</label>
+											<input type="text" class="form-control" name='Evento' value={inputs.Evento || ""} onChange={handleChange} required/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Hora</label>
+											<input type="text" class="form-control" name='Hora' value={inputs.Hora || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Importancia</label>
+											<div class="d-flex align-items-center mt-2">
+											<select id="sub" name='Importancia' value={inputs.Importancia || ""} onChange={handleChange} required>
+											<option value="" selected hidden></option>
+											<option value="ALTA">ALTA</option>
+											<option value="MEDIA">MEDIA</option>
+											<option value="BAJA">BAJA</option>
+										
+										</select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Actual</label>
+											<input type="text" class="form-control" name='Actual' value={inputs.Actual || ""} onChange={handleChange} required/>
+										</div>
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Previsión</label>
+											<input type="text" class="form-control" name='Prevision' value={inputs.Prevision || ""} onChange={handleChange} required/>
+										</div>
+										</div>
+										<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Anterior</label>
+											<input type="text" class="form-control" name='Anterior' value={inputs.Anterior || ""} onChange={handleChange} required/>
+										</div>
+
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>URL Bandera</label>
+											<input type="text" class="form-control" name='url' value={inputs.url || ""} onChange={handleChange} required/>
+										</div>
+
+
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Moneda</label>
+											<input type="text" class="form-control" name='Moneda' value={inputs.Moneda || ""} onChange={handleChange} required/>
+										</div>
+
+										<div class="col-md-6 mt-md-0 mt-3">
+											<label className='labelform'>Fuente</label>
+											<input type="text" class="form-control" name='Fuente' value={inputs.Fuente || ""} onChange={handleChange} required/>
+										</div>
+
+
+									</div>
+
+
+									<div class=" my-md-2 my-3">
+										<label className='labelform'>Detalle de la noticia</label>
+										
+    									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='Detalle'
+										 value={inputs.Detalle || ""} onChange={handleChange}></textarea>
+									</div>
+									
+									<button type="submit" class="btn btn-primary botondefrom" onClick={mandardatosform} >Enviar</button>
+								</div>
+
+								</div>
+						</form>
+
+
+
+					</div> */}
+					{/* TERMINA PARTE ARTE DEL FORM DEL ADMINISTRADOR */}
+
+
+{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+
+
 
 			{/* parte del footer de la pagina */}
 
