@@ -3,7 +3,7 @@ import {Registro} from './Registro';
 
 export function Tabla({noticias}) {
     return (
-        <table class="table tabla">
+        <table className="table tabla">
             <thead>
                 <tr>						
                     <th scope="col">Hora</th>

@@ -160,8 +160,8 @@ export function Data({noticias}) {
 							<div className="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
 								<span className="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'className = "flecha " /> 
 							</div>
-							<marquee className="news-scroll semueve2 " behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#"> 
-								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a> 
+							<marquee className="news-scroll semueve2 " behavior="scroll" direction="left"> <a href="#"> 
+								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a>
 							</marquee>
 						</div>
 					</div>
@@ -230,13 +230,13 @@ export function Data({noticias}) {
 
 				<div className=' container '>
 
-					{/* <div class = "sinsalto altofiltro">H</div>
-					<div class = "sinsaltomedio mediofiltro">M</div>
-					<div class = "sinsaltobajo bajofiltro">B</div>
-					<div class="vertical-line" > </div> */}
+					{/* <div className = "sinsalto altofiltro">H</div>
+					<div className = "sinsaltomedio mediofiltro">M</div>
+					<div className = "sinsaltobajo bajofiltro">B</div>
+					<div className="vertical-line" > </div> */}
 					<div className="dropdown butonprimer">
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div class = "import">  </div> &nbsp;  &nbsp;&nbsp;
+							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
 						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<div className = "rellenar"></div>
@@ -248,10 +248,10 @@ export function Data({noticias}) {
 									<div>
 										<input className="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_1 s_fac1" value="false" checked={chkAlta} name="filimportancia"
 										onChange={handleOnChangeChkAlta}/>
-										<label for="chkbx_1 s_fac1" class="form-checkbox form-icon">
-											<div class = "chetodo"> <span></span> 
-												<div class = "nosalto ">  
-													<div class = "sinsalto">H</div> &nbsp;&nbsp; ALTA  
+										<label htmlFor="chkbx_1 s_fac1" className="form-checkbox form-icon">
+											<div className = "chetodo"> <span></span> 
+												<div className = "nosalto ">  
+													<div className = "sinsalto">H</div> &nbsp;&nbsp; ALTA  
 												</div> 
 											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Eventos de gran importancia que históricamente han provocado volatilidad en los mercados.								
 										</label>								
@@ -260,15 +260,15 @@ export function Data({noticias}) {
 								</a>
 
 
-								<a class="dropdown-item" id='chec' href="#">
+								<a className="dropdown-item" id='chec' href="#">
 
 									<div>
-										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_2 s_fac2" value="false" checked={chkMedia} name="filimportancia"
+										<input className="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_2 s_fac2" value="false" checked={chkMedia} name="filimportancia"
 										onChange={handleOnChangeChkMedia}/>
-										<label for="chkbx_2 s_fac2" class="form-checkbox form-icon">
-											<div class = "chetodo"> <span></span>  
-												<div class = "nosalto ">  
-													<div class = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO
+										<label htmlFor="chkbx_2 s_fac2" className="form-checkbox form-icon">
+											<div className = "chetodo"> <span></span>  
+												<div className = "nosalto ">  
+													<div className = "sinsaltomedio">M</div> &nbsp;&nbsp; MEDIO
 												</div> 
 											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Es relativamente menos probable que fuerce movimientos importantes del mercado, excepto en caso de sorpresas descomunales.
 										</label>
@@ -280,15 +280,15 @@ export function Data({noticias}) {
 
 							
 
-								<a class="dropdown-item" id='chec' href="#">
+								<a className="dropdown-item" id='chec' href="#">
 
 									<div>
-										<input class="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_3 s_fac3" value="false" checked={chkBaja} name="filimportancia"
+										<input className="custom-checkbox sev_check chec_importancia" type="checkbox" id="chkbx_3 s_fac3" value="false" checked={chkBaja} name="filimportancia"
 										onChange={handleOnChangeChkBaja}/>
-										<label for="chkbx_3 s_fac3" class="form-checkbox form-icon">
-											<div class = "chetodo"> <span></span>  
-												<div class = "nosalto ">  
-													<div class = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  
+										<label htmlFor="chkbx_3 s_fac3" className="form-checkbox form-icon">
+											<div className = "chetodo"> <span></span>  
+												<div className = "nosalto ">  
+													<div className = "sinsaltobajo">B</div> &nbsp;&nbsp; BAJO  
 												</div> 
 											</div>  &nbsp;&nbsp;  &nbsp;&nbsp; Históricamente, es un evento que mueve menos el mercado, excepto en las circunstancias más extraordinarias.
 										</label>									
@@ -313,9 +313,9 @@ export function Data({noticias}) {
 				{/* Filtro de Región*/}
 				<div className=' container butondos'>
 
-					{/* <div class = "sinsalto altofiltro">H</div>
-					<div class = "sinsaltomedio mediofiltro">M</div>
-					<div class = "sinsaltobajo bajofiltro">B</div> */}
+					{/* <div className = "sinsalto altofiltro">H</div>
+					<div className = "sinsaltomedio mediofiltro">M</div>
+					<div className = "sinsaltobajo bajofiltro">B</div> */}
 					<div className="vertical-line2" > </div>
 
 					{/* Botón */}
@@ -337,7 +337,7 @@ export function Data({noticias}) {
 									<div>
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_4 s_fac1" value="america" checked={opcionAmerica} 
 										onChange={seleccionAmerica}/>
-										<label for="chkbx_4 s_fac1" class="form-checkbox form-icon">
+										<label htmlFor="chkbx_4 s_fac1" className="form-checkbox form-icon">
 											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "america"> <img src="https://as2.ftcdn.net/v2/jpg/03/05/31/79/1000_F_305317913_RLtEYk6lfa5gbsdC2gdndH0LfqhJuwLB.jpg" alt="" height='29' width='27'></img> </div> &nbsp; AMÉRICA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a los Estados Unidos, Canadá , México, Brasil, Colombia, entre otros.
 										</label>
 									</div>
@@ -348,7 +348,7 @@ export function Data({noticias}) {
 									<div>
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_5 s_fac2" value="europa" checked={opcionEuropa} 
 										onChange={seleccionEuropa}/>
-										<label for="chkbx_5 s_fac2" class="form-checkbox form-icon">
+										<label htmlFor="chkbx_5 s_fac2" className="form-checkbox form-icon">
 											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Alemania, Francia, España, Italia, Grecia, Austria, Irlanda, Finlandia, Países Bajos, Portugal, Bélgica y más.
 										</label>
 									</div>
@@ -359,7 +359,7 @@ export function Data({noticias}) {
 									<div>
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_6 s_fac3" value="asia" checked={opcionAsia} 
 										onChange={seleccionAsia}/>
-										<label for="chkbx_6 s_fac3" class="form-checkbox form-icon">
+										<label htmlFor="chkbx_6 s_fac3" className="form-checkbox form-icon">
 											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japón, Australia, Nueva Zelanda, China, India, Corea del Sur, Tailandia, Indonesia, Filipinas, entre otros.
 										</label>	
 									</div>
@@ -387,34 +387,34 @@ export function Data({noticias}) {
 
 
 					{/* ARTE DEL FORM DEL ADMINISTRADOR */}
-					{/* <div class="">
+					{/* <div className="">
 
 
 						<form >
 
-						<div class="wrapper rounded bg-white">
+						<div className="wrapper rounded bg-white">
 
-								<div class="h3"> Form</div>
+								<div className="h3"> Form</div>
 
-								<div class="form">
-									<div class="row">
-										<div class="col-md-6 mt-md-0 mt-3">
+								<div className="form">
+									<div className="row">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Pais</label>
-											<input type="text" class="form-control" name='Pais' value={inputs.Pais || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Pais' value={inputs.Pais || ""} onChange={handleChange} required/>
 										</div>
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Evento</label>
-											<input type="text" class="form-control" name='Evento' value={inputs.Evento || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Evento' value={inputs.Evento || ""} onChange={handleChange} required/>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6 mt-md-0 mt-3">
+									<div className="row">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Hora</label>
-											<input type="text" class="form-control" name='Hora' value={inputs.Hora || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Hora' value={inputs.Hora || ""} onChange={handleChange} required/>
 										</div>
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Importancia</label>
-											<div class="d-flex align-items-center mt-2">
+											<div className="d-flex align-items-center mt-2">
 											<select id="sub" name='Importancia' value={inputs.Importancia || ""} onChange={handleChange} required>
 											<option value="" selected hidden></option>
 											<option value="ALTA">ALTA</option>
@@ -425,53 +425,53 @@ export function Data({noticias}) {
 											</div>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6 mt-md-0 mt-3">
+									<div className="row">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Actual</label>
-											<input type="text" class="form-control" name='Actual' value={inputs.Actual || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Actual' value={inputs.Actual || ""} onChange={handleChange} required/>
 										</div>
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Previsión</label>
-											<input type="text" class="form-control" name='Prevision' value={inputs.Prevision || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Prevision' value={inputs.Prevision || ""} onChange={handleChange} required/>
 										</div>
 										</div>
-										<div class="row">
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="row">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Anterior</label>
-											<input type="text" class="form-control" name='Anterior' value={inputs.Anterior || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Anterior' value={inputs.Anterior || ""} onChange={handleChange} required/>
 										</div>
 
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>URL Bandera</label>
-											<input type="text" class="form-control" name='url' value={inputs.url || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='url' value={inputs.url || ""} onChange={handleChange} required/>
 										</div>
 
 
 									</div>
 
-									<div class="row">
-										<div class="col-md-6 mt-md-0 mt-3">
+									<div className="row">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Moneda</label>
-											<input type="text" class="form-control" name='Moneda' value={inputs.Moneda || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Moneda' value={inputs.Moneda || ""} onChange={handleChange} required/>
 										</div>
 
-										<div class="col-md-6 mt-md-0 mt-3">
+										<div className="col-md-6 mt-md-0 mt-3">
 											<label className='labelform'>Fuente</label>
-											<input type="text" class="form-control" name='Fuente' value={inputs.Fuente || ""} onChange={handleChange} required/>
+											<input type="text" className="form-control" name='Fuente' value={inputs.Fuente || ""} onChange={handleChange} required/>
 										</div>
 
 
 									</div>
 
 
-									<div class=" my-md-2 my-3">
+									<div className=" my-md-2 my-3">
 										<label className='labelform'>Detalle de la noticia</label>
 										
-    									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='Detalle'
+    									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" name='Detalle'
 										 value={inputs.Detalle || ""} onChange={handleChange}></textarea>
 									</div>
 									
-									<button type="submit" class="btn btn-primary botondefrom" onClick={mandardatosform} >Enviar</button>
+									<button type="submit" className="btn btn-primary botondefrom" onClick={mandardatosform} >Enviar</button>
 								</div>
 
 								</div>
@@ -489,12 +489,12 @@ export function Data({noticias}) {
 
 			{/* parte del footer de la pagina */}
 
-			<footer class="site-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12 col-md-12">
+			<footer className="site-footer">
+					<div className="container">
+						<div className="row">
+							<div className="col-sm-12 col-md-12">
 								<h6>Aviso legal:</h6>
-								<p class="text-justify">Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido, y pueden no ser adecuadas para todos los inversores. Los precios de las criptomonedas son extremadamente volátiles y pueden verse afectados por factores externos de tipo financiero, regulatorio o político. Operar sobre márgenes aumenta los riesgos financieros.
+								<p className="text-justify">Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido, y pueden no ser adecuadas para todos los inversores. Los precios de las criptomonedas son extremadamente volátiles y pueden verse afectados por factores externos de tipo financiero, regulatorio o político. Operar sobre márgenes aumenta los riesgos financieros.
 								Antes de lanzarse a invertir en un instrumento financiero o criptomoneda, infórmese debidamente de los riesgos y costes asociados a este tipo operaciones en los mercados financieros. Fije unos objetivos de inversión adecuados a su nivel de experiencia y su apetito por el riesgo y, siempre que sea necesario, busque asesoramiento profesional.
 								Fusion Media quiere recordarle que la información contenida en este sitio web no se ofrece necesariamente ni en tiempo real ni de forma exacta. Los datos y precios de la web no siempre proceden de operadores de mercado o bolsas, por lo que los precios podrían diferir del precio real de cualquier mercado. Son precios orientativos que en ningún caso deben utilizarse con fines bursátiles. Ni Fusion Media ni ninguno de los proveedores de los datos de esta web asumen responsabilidad alguna por las pérdidas o resultados perniciosos de sus operaciones basados en su confianza en la información contenida en la web.
 								Queda prohibida la total reproducción, modificación, transmisión o distribución de los datos publicados en este sitio web sin la autorización previa por escrito de Fusion Media y/o del proveedor de los mismos. Todos los derechos de propiedad intelectual están reservados a los proveedores y/o bolsa responsable de dichos los datos.
@@ -506,20 +506,20 @@ export function Data({noticias}) {
 
 					</div>
 
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8 col-sm-6 col-xs-12">
-								<p  class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+					<div className="container">
+						<div className="row">
+							<div className="col-md-8 col-sm-6 col-xs-12">
+								<p  className="copyright-text">Copyright &copy; 2022 All Rights Reserved by
 									<a href="#"> HOLA MUNDO</a>.
 								</p>
 							</div>
 
-							<div class="col-md-4 col-sm-6 col-xs-12">
-								<ul class="social-icons">
-									<li><a class="facebook" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="" height='39' width='39' /> </a></li>
-									<li><a class="twitter" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/4494/4494481.png" alt="" height='39' width='39' />  </a></li>
-									<li><a class="dribbble" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494489.png" alt="" height='39' width='39' />   </a></li>
-									<li><a class="linkedin" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494485.png" alt="" height='39' width='39' />   </a></li>   
+							<div className="col-md-4 col-sm-6 col-xs-12">
+								<ul className="social-icons">
+									<li><a className="facebook" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="" height='39' width='39' /> </a></li>
+									<li><a className="twitter" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/4494/4494481.png" alt="" height='39' width='39' />  </a></li>
+									<li><a className="dribbble" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494489.png" alt="" height='39' width='39' />   </a></li>
+									<li><a className="linkedin" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494485.png" alt="" height='39' width='39' />   </a></li>   
 								</ul>
 							</div>
 						</div>

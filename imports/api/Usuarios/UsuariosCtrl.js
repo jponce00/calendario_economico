@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import {check, Match} from 'meteor/check';
 import UsuariosServ from './UsuariosServ';

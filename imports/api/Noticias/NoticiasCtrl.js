@@ -1,6 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 import {check, Match} from 'meteor/check';
 import {ResponseMessage} from '../../startup/server/utilities/ResponseMessage';
+// @ts-ignore
 import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import NoticiasServ from './NoticiasServ';
 

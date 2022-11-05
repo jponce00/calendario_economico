@@ -15,7 +15,7 @@ export function Registro({noticia}) {
 					<img src={noticia.country.flag} alt="" height='27' width='27'></img>
 				</td>
 				<td>
-					<div class= {noticia.importance}>
+					<div className= {noticia.importance}>
 						{noticia.importance}
 					</div> 
 				</td>
@@ -33,19 +33,21 @@ export function Registro({noticia}) {
 
 			{/* Lo que se mostrara al ampliar */}
 			<tr className={mostrarComponente ? "mostrar" : "no-mostrar"}>
-				<td colspan="8">
+				<td 
+// @ts-ignore
+				colSpan="8">
 					<div>
-						{mostrarComponente && <div class =" desplegar "> 
-							<div class = "cointainer"> 
+						{mostrarComponente && <div className =" desplegar "> 
+							<div className = "cointainer"> 
 
-								<div class='descripcion' >
-									<p> <b> Imp: </b> &nbsp; <div class= {noticia.importance}>{noticia.importance}</div> </p>
+								<div className='descripcion' >
+									<p> <b> Imp: </b> &nbsp; <div className= {noticia.importance}>{noticia.importance}</div> </p>
 									<p> <b>País: </b> &nbsp; &nbsp;&nbsp;<img src= {noticia.country.flag} alt="" height='27' width='27'></img> </p>
 									<p> <b>Divisa: </b>  &nbsp;	{noticia.country.currency} </p>
 									<p> <b>Fuente: </b> &nbsp;	{noticia.source} </p> 
 								</div>
 								
-								<div class= "masinfo" > 
+								<div className= "masinfo" > 
 									<p> {noticia.description} </p> 
 								</div>
 
