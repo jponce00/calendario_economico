@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react';
 
 export function Registro({noticia}) {
 
-	const [mostrarComponente, setMostrarComponente] = useState(false);
-	const al = "MEDIO";
+	const [mostrarComponente, setMostrarComponente] = useState(false);	
+
+	const handleSubmit = (e) => {
+		e.preventDefault();		
+		Meteor.call('news.delete', {_id: e.target[0].value}, (error, response) => {
+			if (error) {
+				alert(error.reason);
+			} else {
+				alert(response.message);
+			}
+		});
+	}
 
 	return (
-		
 		<>						
 			{/* Lo que se mostrar sin ampliar */}
 			<tr>
@@ -29,13 +38,23 @@ export function Registro({noticia}) {
 						<img src="https://img.icons8.com/material/344/chevron-down--v1.png" alt="" height='11' width='11'></img>
 					</button>
 				</td>
+				<td>					
+					<form onSubmit={handleSubmit}>
+						<input type="hidden" value={noticia._id} />
+						<button className='btn-eliminar' type="submit">X</button>
+					</form>
+					<form>
+						<input type="hidden" value={noticia._id} />
+						<button className='btn-eliminar' type="submit">Editar</button>
+					</form>					
+				</td>
 			</tr>
 
 			{/* Lo que se mostrara al ampliar */}
 			<tr className={mostrarComponente ? "mostrar" : "no-mostrar"}>
 				<td 
 // @ts-ignore
-				colSpan="8">
+				colSpan="9">
 					<div>
 						{mostrarComponente && <div className =" desplegar "> 
 							<div className = "cointainer"> 

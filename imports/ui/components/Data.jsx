@@ -1,10 +1,13 @@
 // @ts-nocheck
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { NewsContext } from '../context/newsContext';
 import { Formulario } from './Formulario';
 import {Tabla} from './Tabla';
+import { Footer } from './Footer';
 
+export function Data() {
 
-export function Data({noticias}) {
+	const {noticias} = useContext(NewsContext);
 
 	// Opciones de importancia
 	const [chkBaja, setChkBaja] = useState(false);
@@ -36,8 +39,7 @@ export function Data({noticias}) {
 			noticiasFiltro = noticiasFiltro.filter(noticia => noticia.importance==baja || noticia.importance==media || noticia.importance==alta);
 		} else {			
 			filtro = false;
-		}
-
+		}		
 		return filtro;
 	}
 
@@ -82,7 +84,7 @@ export function Data({noticias}) {
 	};
 
 
-	// Cambios de fecha:
+	// Cambios de fecha:		
 	function filtrarFecha() {
 		let filtroFecha = new Date();
 		opcionAyer ? filtroFecha.setDate(filtroFecha.getDate() - 1) : opcionManana ? filtroFecha.setDate(filtroFecha.getDate() + 1) : filtroFecha;
@@ -98,43 +100,25 @@ export function Data({noticias}) {
 		setOpcionAyer( !opcionAyer );
 		setOpcionHoy( opcionHoy ? !opcionHoy : opcionHoy );
 		setOpcionManana( opcionManana ? !opcionManana : opcionManana );
-		filtrarFecha();
+		//filtrarFecha();
+		//console.log(noticiasFiltro);
 	}
 
-	const seleccionHoy = () => {
+	const seleccionHoy = () => {		
 		setOpcionAyer( opcionAyer ? !opcionAyer : opcionAyer );
 		setOpcionHoy( !opcionHoy );
 		setOpcionManana( opcionManana ? !opcionManana : opcionManana );
-		filtrarFecha();
+		//filtrarFecha();
+		//console.log(noticiasFiltro);
 	}
 
 	const seleccionManana = () => {
 		setOpcionAyer( opcionAyer ? !opcionAyer : opcionAyer );
 		setOpcionHoy( opcionHoy ? !opcionHoy : opcionHoy );
 		setOpcionManana( !opcionManana );
-		filtrarFecha();
+		//filtrarFecha();
+		//console.log(noticiasFiltro);
 	}
-
-	// FUNCIONES DE FORM 
-	const [inputs, setInputs] = useState({});
-
-	const handleChange = (event) => {
-	  const name = event.target.name;
-	  const value = event.target.value;
-	  setInputs(values => ({...values, [name]: value}))
-	}
-  
-	// FUNCION PARA PROBAR SI SE OBTIENEN LOS DATOS QUITAR onSubmit={handleSubmit} DEL form cuando ya no lo ocupen
-	// const handleSubmit = (event) => {
-	//   event.preventDefault();
-	//   console.log(inputs);
-	// }
-
-	// AQUI MANDARIAMOS LOS DATOS DEL FORM ALA BASE DE DATOS 
-	const mandardatosform = () =>{
-		console.log(inputs);
-	}
-	// TERMINA FUNCIONES DE FORM 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -375,9 +359,9 @@ export function Data({noticias}) {
 			{/* Contenedor de la Tabla */}
 			<div className="container contenedor-tabla">							
 				{/* Mandar a llamar al componente tabla */}
-				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : filtrarFecha() ? noticiasFiltro : noticias} />
+				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
 				<Formulario/>
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
@@ -385,146 +369,12 @@ export function Data({noticias}) {
 			</div>
 			{/* Cierre de contenedor principal */}
 
-
-					{/* ARTE DEL FORM DEL ADMINISTRADOR */}
-					{/* <div className="">
-
-
-						<form >
-
-						<div className="wrapper rounded bg-white">
-
-								<div className="h3"> Form</div>
-
-								<div className="form">
-									<div className="row">
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Pais</label>
-											<input type="text" className="form-control" name='Pais' value={inputs.Pais || ""} onChange={handleChange} required/>
-										</div>
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Evento</label>
-											<input type="text" className="form-control" name='Evento' value={inputs.Evento || ""} onChange={handleChange} required/>
-										</div>
-									</div>
-									<div className="row">
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Hora</label>
-											<input type="text" className="form-control" name='Hora' value={inputs.Hora || ""} onChange={handleChange} required/>
-										</div>
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Importancia</label>
-											<div className="d-flex align-items-center mt-2">
-											<select id="sub" name='Importancia' value={inputs.Importancia || ""} onChange={handleChange} required>
-											<option value="" selected hidden></option>
-											<option value="ALTA">ALTA</option>
-											<option value="MEDIA">MEDIA</option>
-											<option value="BAJA">BAJA</option>
-										
-										</select>
-											</div>
-										</div>
-									</div>
-									<div className="row">
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Actual</label>
-											<input type="text" className="form-control" name='Actual' value={inputs.Actual || ""} onChange={handleChange} required/>
-										</div>
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Previsión</label>
-											<input type="text" className="form-control" name='Prevision' value={inputs.Prevision || ""} onChange={handleChange} required/>
-										</div>
-										</div>
-										<div className="row">
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Anterior</label>
-											<input type="text" className="form-control" name='Anterior' value={inputs.Anterior || ""} onChange={handleChange} required/>
-										</div>
-
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>URL Bandera</label>
-											<input type="text" className="form-control" name='url' value={inputs.url || ""} onChange={handleChange} required/>
-										</div>
-
-
-									</div>
-
-									<div className="row">
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Moneda</label>
-											<input type="text" className="form-control" name='Moneda' value={inputs.Moneda || ""} onChange={handleChange} required/>
-										</div>
-
-										<div className="col-md-6 mt-md-0 mt-3">
-											<label className='labelform'>Fuente</label>
-											<input type="text" className="form-control" name='Fuente' value={inputs.Fuente || ""} onChange={handleChange} required/>
-										</div>
-
-
-									</div>
-
-
-									<div className=" my-md-2 my-3">
-										<label className='labelform'>Detalle de la noticia</label>
-										
-    									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" name='Detalle'
-										 value={inputs.Detalle || ""} onChange={handleChange}></textarea>
-									</div>
-									
-									<button type="submit" className="btn btn-primary botondefrom" onClick={mandardatosform} >Enviar</button>
-								</div>
-
-								</div>
-						</form>
-
-
-
-					</div> */}
-					{/* TERMINA PARTE ARTE DEL FORM DEL ADMINISTRADOR */}
-
-
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 
 
 			{/* parte del footer de la pagina */}
-
-			<footer className="site-footer">
-					<div className="container">
-						<div className="row">
-							<div className="col-sm-12 col-md-12">
-								<h6>Aviso legal:</h6>
-								<p className="text-justify">Las operaciones con instrumentos financieros o criptomonedas implican un elevado riesgo, incluyendo la pérdida parcial o total del capital invertido, y pueden no ser adecuadas para todos los inversores. Los precios de las criptomonedas son extremadamente volátiles y pueden verse afectados por factores externos de tipo financiero, regulatorio o político. Operar sobre márgenes aumenta los riesgos financieros.
-								Antes de lanzarse a invertir en un instrumento financiero o criptomoneda, infórmese debidamente de los riesgos y costes asociados a este tipo operaciones en los mercados financieros. Fije unos objetivos de inversión adecuados a su nivel de experiencia y su apetito por el riesgo y, siempre que sea necesario, busque asesoramiento profesional.
-								Fusion Media quiere recordarle que la información contenida en este sitio web no se ofrece necesariamente ni en tiempo real ni de forma exacta. Los datos y precios de la web no siempre proceden de operadores de mercado o bolsas, por lo que los precios podrían diferir del precio real de cualquier mercado. Son precios orientativos que en ningún caso deben utilizarse con fines bursátiles. Ni Fusion Media ni ninguno de los proveedores de los datos de esta web asumen responsabilidad alguna por las pérdidas o resultados perniciosos de sus operaciones basados en su confianza en la información contenida en la web.
-								Queda prohibida la total reproducción, modificación, transmisión o distribución de los datos publicados en este sitio web sin la autorización previa por escrito de Fusion Media y/o del proveedor de los mismos. Todos los derechos de propiedad intelectual están reservados a los proveedores y/o bolsa responsable de dichos los datos.
-								</p>
-							</div>
-						</div>
-
-						<hr />
-
-					</div>
-
-					<div className="container">
-						<div className="row">
-							<div className="col-md-8 col-sm-6 col-xs-12">
-								<p  className="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-									<a href="#"> HOLA MUNDO</a>.
-								</p>
-							</div>
-
-							<div className="col-md-4 col-sm-6 col-xs-12">
-								<ul className="social-icons">
-									<li><a className="facebook" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="" height='39' width='39' /> </a></li>
-									<li><a className="twitter" href="#"> <img src="https://cdn-icons-png.flaticon.com/512/4494/4494481.png" alt="" height='39' width='39' />  </a></li>
-									<li><a className="dribbble" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494489.png" alt="" height='39' width='39' />   </a></li>
-									<li><a className="linkedin" href="#">  <img src="https://cdn-icons-png.flaticon.com/512/4494/4494485.png" alt="" height='39' width='39' />   </a></li>   
-								</ul>
-							</div>
-						</div>
-					</div>
-			</footer>
+			<Footer />
 
 		</div>
 	);

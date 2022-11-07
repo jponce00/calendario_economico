@@ -844,6 +844,24 @@ label{
 	height: 300px;
 }
 
+.form-control-2 {
+  width: 100px !important;
+  margin-right: 10px;
+}
+
+.form-control-3 {
+  width: 75px !important;
+  margin-right: 10px;
+}
+
+.inputs-tiempo {
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+.btn-eliminar {
+  background-color: #007bb6;
+}
 
 
 /* animacion */
