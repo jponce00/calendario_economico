@@ -128,10 +128,23 @@ export function Data() {
 		<div className="contenedor-todo">
 
 			{/* CONTENEDOR GRIS */}
+
+
+
 			<div className="menu"> 
-				{/* <h1>CONTENEDOR GRIS</h1> */}
-			</div>
 			
+				{/* <h1>CONTENEDOR GRIS</h1> */}
+								<p className='pdetitulo'>
+								
+								<span className='spantitulo'>
+								ECONOMICDX 
+								</span>
+								
+								</p>
+			</div>
+
+			
+
 			{/* Espacio entre el contener gris y el Breaking News */}
 			<br /> 
 
@@ -333,7 +346,7 @@ export function Data() {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_5 s_fac2" value="europa" checked={opcionEuropa} 
 										onChange={seleccionEuropa}/>
 										<label htmlFor="chkbx_5 s_fac2" className="form-checkbox form-icon">
-											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Alemania, Francia, España, Italia, Grecia, Austria, Irlanda, Finlandia, Países Bajos, Portugal, Bélgica y más.
+											<div className = "chetodoeuropa"> <span></span>  <div className = "nosalto ">  <div className = "europa"> <img src="https://static.thenounproject.com/png/19032-200.png" alt="" height='29' width='27'></img>  </div> &nbsp;&nbsp; EUROPA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp; Incluye a Alemania, Francia, España, Italia, Grecia, Austria, Irlanda, Finlandia, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Países Bajos, Portugal, Bélgica y más.
 										</label>
 									</div>
 								</a>
@@ -344,7 +357,7 @@ export function Data() {
 										<input className="custom-checkbox sev_check chec_region" type="checkbox" id="chkbx_6 s_fac3" value="asia" checked={opcionAsia} 
 										onChange={seleccionAsia}/>
 										<label htmlFor="chkbx_6 s_fac3" className="form-checkbox form-icon">
-											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japón, Australia, Nueva Zelanda, China, India, Corea del Sur, Tailandia, Indonesia, Filipinas, entre otros.
+											<div className = "chetodo2"> <span></span>  <div className = "nosalto ">  <div className = "asia"> <img src="https://static.thenounproject.com/png/416782-200.png" alt="" height='29' width='27'></img> </div> &nbsp;&nbsp; ASIA  </div> </div>  &nbsp;&nbsp;  &nbsp;&nbsp;Incluye a Japón, Australia, Nueva Zelanda, China, India, Corea del Sur, Tailandia, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Indonesia, Filipinas, entre otros.
 										</label>	
 									</div>
 								</a>
@@ -362,8 +375,8 @@ export function Data() {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
-				<Formulario/>
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+				<Formulario/>				
+{/* //			---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}
 			</div>
