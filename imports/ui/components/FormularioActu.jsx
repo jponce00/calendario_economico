@@ -1,12 +1,11 @@
 // @ts-nocheck
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { NewsContext } from '../context/newsContext';
 
-export function Formulario() {
+export function FormularioActu() {
+    const {noticiasEditar, actualizarNoticia} = useContext(NewsContext);
 
-	const {agregarNoticia} = useContext(NewsContext);
-
-	const [pais, setPais] = useState('');
+    const [pais, setPais] = useState('');
 	const [region, setRegion] = useState('');
 	const [evento, setEvento] = useState('');
 	const [anio, setAnio] = useState('');
@@ -23,10 +22,48 @@ export function Formulario() {
 	const [fuente, setFuente] = useState('');
 	const [descripcion, setDescripcion] = useState('');
 
-	const handleSubmit = (e) => {
+    useEffect(() => {
+        if (!noticiasEditar[0]) {
+            setPais('');
+            setRegion('');
+            setEvento('');
+            setAnio('');
+            setMes('');
+            setDia('');
+            setHora('');
+            setMinutos('');
+            setImportancia('');
+            setActual('');
+            setPrevision('');
+            setAnterior('');
+            setUrl('');
+            setMoneda('');
+            setFuente('');
+            setDescripcion('');
+        } else {
+            setPais(noticiasEditar[0].country.country);
+            setRegion(noticiasEditar[0].country.region);
+            setEvento(noticiasEditar[0].name);
+            setAnio(noticiasEditar[0].year);
+            setMes(noticiasEditar[0].month);
+            setDia(noticiasEditar[0].day);
+            setHora(noticiasEditar[0].hour);
+            setMinutos(noticiasEditar[0].minutes);
+            setImportancia(noticiasEditar[0].importance);
+            setActual(noticiasEditar[0].actual);
+            setPrevision(noticiasEditar[0].forecast);
+            setAnterior(noticiasEditar[0].previous);
+            setUrl(noticiasEditar[0].country.flag);
+            setMoneda(noticiasEditar[0].country.currency);
+            setFuente(noticiasEditar[0].source);
+            setDescripcion(noticiasEditar[0].description);
+        }    
+    }, [noticiasEditar]); 
+
+    const handleSubmit = (e) => {
 		e.preventDefault();
 		const noticia = {
-			_id: null,
+			_id: noticiasEditar[0]._id,
 			name: evento,
 			importance: importancia,
 			year: anio,
@@ -42,17 +79,16 @@ export function Formulario() {
 			source: fuente
 		};
 
-		agregarNoticia(noticia);
+		actualizarNoticia(noticia);
 	}
 
     return (
-        
-		<div className=""> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
+        <div className=""> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
         
 			<form onSubmit={handleSubmit}>
 
 				<div className="wrapper rounded bg-white">
-					<div className="h3"> Nuevo Evento</div>
+					<div className="h3"> Editar Evento</div>
 
 					<div className="form">
 						<div className="row">
@@ -145,7 +181,6 @@ export function Formulario() {
 			</form>
 
           {/* TERMINA PARTE ARTE DEL FORM DEL ADMINISTRADOR */}
-        </div> 
-        
+        </div>
     );
 }

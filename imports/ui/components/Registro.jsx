@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+// @ts-nocheck
+import React, { useState, useContext } from 'react';
+import { NewsContext } from '../context/newsContext';
 
 export function Registro({noticia}) {
 
-	const [mostrarComponente, setMostrarComponente] = useState(false);	
+	const [mostrarComponente, setMostrarComponente] = useState(false);
+	const {obtenerNoticia} = useContext(NewsContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();		
@@ -13,7 +16,7 @@ export function Registro({noticia}) {
 				alert(response.message);
 			}
 		});
-	}
+	}	
 
 	return (
 		<>						
@@ -43,10 +46,11 @@ export function Registro({noticia}) {
 						<input type="hidden" value={noticia._id} />
 						<button className='btn-eliminar' type="submit">X</button>
 					</form>
-					<form>
-						<input type="hidden" value={noticia._id} />
-						<button className='btn-eliminar' type="submit">Editar</button>
-					</form>					
+					<button className='btn-eliminar' onClick={() => {
+						obtenerNoticia(noticia._id);
+					}}>
+						Editar
+					</button>
 				</td>
 			</tr>
 

@@ -4,7 +4,7 @@ import { Data } from './Data.jsx';
 export default function App() {
 	return (
 		<div>		
-			<Data />
+			<Data />			
 		</div>
 	);
 }

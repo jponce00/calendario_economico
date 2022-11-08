@@ -4,6 +4,7 @@ import { NewsContext } from '../context/newsContext';
 import { Formulario } from './Formulario';
 import {Tabla} from './Tabla';
 import { Footer } from './Footer';
+import { FormularioActu } from './FormularioActu';
 
 export function Data() {
 
@@ -24,7 +25,7 @@ export function Data() {
 	const [opcionHoy, setOpcionHoy] = useState(true);
 	const [opcionManana, setOpcionManana] = useState(false);
 
-	let noticiasFiltro = noticias;
+	let noticiasFiltro = noticias;	
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -84,14 +85,15 @@ export function Data() {
 	};
 
 
-	// Cambios de fecha:		
+	// Cambios de fecha:	
 	function filtrarFecha() {
 		let filtroFecha = new Date();
 		opcionAyer ? filtroFecha.setDate(filtroFecha.getDate() - 1) : opcionManana ? filtroFecha.setDate(filtroFecha.getDate() + 1) : filtroFecha;
 		let year = filtroFecha.getFullYear().toString();
 		let month = (filtroFecha.getMonth() + 1).toString();
 		let day = filtroFecha.getDate().toString();
-		noticiasFiltro = noticias.filter(noticia => noticia.year==year && noticia.month==month && noticia.day==day);
+		
+		noticiasFiltro = noticias.filter(noticia => noticia.year==year && noticia.month==month && noticia.day==day);		
 		
 		return true;
 	}
@@ -375,7 +377,8 @@ export function Data() {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
-				<Formulario/>				
+				<Formulario/>
+				<FormularioActu />				
 {/* //			---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}
