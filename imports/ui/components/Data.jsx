@@ -5,6 +5,8 @@ import { Formulario } from './Formulario';
 import {Tabla} from './Tabla';
 import { Footer } from './Footer';
 import { FormularioActu } from './FormularioActu';
+import { TickerTape,Ticker,SingleTicker  } from "react-ts-tradingview-widgets";
+
 
 export function Data() {
 
@@ -152,19 +154,9 @@ export function Data() {
 
 			{/* Contenedor de Breaking News */}
 			<div className = "semueve ">
-        
-				<div className="row ">
-					<div className="col-md-12 ">
-						<div className="d-flex justify-content-between align-items-center breaking-news bg-white colordefondo">
-							<div className="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news brenew ">
-								<span className="d-flex align-items-center brenew ">&nbsp;Breaking News &nbsp;&nbsp;</span>  &nbsp; &nbsp; <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="" height='18' width='17'className = "flecha " /> 
-							</div>
-							<marquee className="news-scroll semueve2 " behavior="scroll" direction="left"> <a href="#"> 
-								<b> Pronóstico del PIB del tercer trimestre de la FED de Atlanta: ahora: 3,1 % frente al 2,9 % del 19 de octubre $MACRO  </b>   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b> Los rendimientos del Tesoro de EE. UU. caen en medio de signos de desaceleración económica Rendimiento de UST a 3 meses: 3,94 % Rendimiento de UST a 2 años: 4,42 % Rendimiento de UST a 10 años: 4,01 % $MACRO</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Se espera que Twitter pase a ser propiedad de Musk el 28 de octubre a las 5:00 p. m., hora de Nueva York: las acciones de BBG TWTR subieron un 0,99 %</b> </a>
-							</marquee>
-						</div>
-					</div>
-				</div>
+
+				<TickerTape colorTheme="light" className="barra" DisplayMode="compact" > </TickerTape>
+				<div className='superponer'>dsadsa</div>
 
 			</div>
         
