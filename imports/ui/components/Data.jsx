@@ -6,7 +6,7 @@ import {Tabla} from './Tabla';
 import { Footer } from './Footer';
 import { FormularioActu } from './FormularioActu';
 import { TickerTape,Ticker,SingleTicker  } from "react-ts-tradingview-widgets";
-
+import { Outlet, Link } from "react-router-dom";
 
 export function Data() {
 
@@ -147,6 +147,7 @@ export function Data() {
 								</p>
 			</div>
 
+                    
 			
 
 			{/* Espacio entre el contener gris y el Breaking News */}
@@ -359,6 +360,12 @@ export function Data() {
 						</div>
 					</div>
 				</div>
+
+							{/* Por mientras solo es para entrar al LOGIN */}
+			        	<div>
+						<button href="/login"  ><Link to="/login">LOGIN</Link></button>
+					</div>
+
 			</div>
 
 {/* //--------------------------------------------------------------------------------------------------------------------------------------------- */}
