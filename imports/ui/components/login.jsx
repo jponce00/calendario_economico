@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
-export function Login({noticias}) {
+
+
+
+export function Login() {
+
+    const [user, setuser] = useState('');
+    const [contrase, setcontrase] = useState('');
+
     return (
         
-        <div>
+        <div className='centrarlogin'>
 
 
-                    <div className="container">
+                    <div className="">
                     <form className="login">
                         <p className="title">PANEL DE ADMINISTRADOR</p>
                         <input type="text" placeholder="Username" autoFocus required/>
