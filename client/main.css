@@ -445,7 +445,7 @@ label{
 .butondos{
   position: absolute;
   
-  top: 563px;
+  top: 586px;
   left: 557px;
   width: 61% !important;
   
@@ -1209,3 +1209,58 @@ footer a:link {
   background: #30373d; 
   color: rgba(255,255,255,.25);  
 }
+
+
+
+
+
+
+.grafica{
+  font: 0/0 a;
+  text-shadow: transparent;
+  color: transparent;
+  text-decoration: none;
+ 
+}
+
+
+
+
+  /* a{
+    color: white !important;
+    background-color: yellow ;
+    display:none !important;  
+  } */
+
+
+  /* .superponer{
+    background-color: #00aced;
+    height: 30px;
+    
+  } */
+
+
+
+
+  .semueve {
+  
+    position: relative;
+  }
+  
+  .barra {
+   
+     position: relative;
+    z-index: 50;
+    font-size: 20px;
+    
+  }
+  
+  .superponer {
+    height: 30px !important;
+    width: 100% !important;
+    position: absolute;
+    top: 55px !important;
+    z-index: 100;
+   background-color: white;
+   color: white; 
+  }
