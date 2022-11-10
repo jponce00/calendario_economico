@@ -27,7 +27,8 @@ export default {
         Accounts.createUser({
             username: user.username,
             email: user.emails[0].address,
-            profile: user.profile
+            profile: user.profile,
+            password: user.password
         });
     },
 

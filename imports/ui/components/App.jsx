@@ -7,12 +7,11 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			
-        <Routes>
-		<Route path="/"  element={ <Data /> } />
-		<Route path="/login" element={<Login />} />
-		</Routes>
+			<Routes>
+				<Route path="/"  element={ <Data /> } />
+				<Route path="/login" element={<Login />} />
+			</Routes>
 
-		
 		</BrowserRouter>
 
 		// <div>
