@@ -1271,9 +1271,18 @@ footer a:link {
 
     
     margin-top: 10%;
+
     margin-left: 40%;
 
   }
 
 
+.show-element{
+  position: relative;
+ width: 600px;
+ text-align: center;
+ top: 100px;
+ left: 460px;
   
+
+}
