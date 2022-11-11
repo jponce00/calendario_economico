@@ -7,10 +7,12 @@ import { Footer } from './Footer';
 import { FormularioActu } from './FormularioActu';
 import { TickerTape,Ticker,SingleTicker  } from "react-ts-tradingview-widgets";
 import { Outlet, Link } from "react-router-dom";
+import { Logout } from './Logout';
 
 export function Data() {
 
 	const {noticias} = useContext(NewsContext);
+	const {currentUser} = useContext(NewsContext);
 
 	// Opciones de importancia
 	const [chkBaja, setChkBaja] = useState(false);
@@ -362,9 +364,13 @@ export function Data() {
 				</div>
 
 							{/* Por mientras solo es para entrar al LOGIN */}
-			        	<div>
-						<button href="/login"  ><Link to="/login">LOGIN</Link></button>
-					</div>
+			        {currentUser ? null : 
+						<div>
+							<button><Link to="/login">LOGIN</Link></button>
+						</div>
+					}
+					
+					{currentUser ? <Logout /> : null}
 
 			</div>
 
@@ -376,8 +382,8 @@ export function Data() {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
-				<Formulario/>
-				<FormularioActu />				
+				{currentUser ? <Formulario/>: null}
+				{currentUser ? <FormularioActu /> : null}
 {/* //			---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}

@@ -1,12 +1,18 @@
+// @ts-nocheck
 import {Meteor} from 'meteor/meteor';
 import {check, Match} from 'meteor/check';
 import {ResponseMessage} from '../../startup/server/utilities/ResponseMessage';
 // @ts-ignore
 import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import NoticiasServ from './NoticiasServ';
+import checkPermission from '/imports/middlewares/AuthGuard';
+import Permissions from '/imports/startup/server/Permissions';
 
 new ValidatedMethod({
     name: 'news.save',
+    mixins: [MethodHooks],
+    permissions: [Permissions.NEWS.CREATE.VALUE, Permissions.NEWS.UPDATE.VALUE],
+    beforeHooks: [checkPermission],
     validate(news) {
         check(news, {
             _id: Match.OneOf(String, null),
@@ -56,6 +62,9 @@ new ValidatedMethod({
 
 new ValidatedMethod({
     name: 'news.delete',
+    mixins: [MethodHooks],
+    permissions: [Permissions.NEWS.DELETE.VALUE],
+    beforeHooks: [checkPermission],
     validate(news) {
         try {
             check(news._id, String);

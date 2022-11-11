@@ -12,27 +12,36 @@ export function Login() {
     const [alerta, setalerta] = useState(false);
     const navigate = useNavigate();
 
-     
- 
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(user == "admin" && contrase=="admin"){
-            setalerta(false);
-            navigate("/");
+        Meteor.loginWithPassword(user, contrase, error => {
+            if (error) {
+                console.error('Error al iniciar sesion: ', error);
+                setalerta(true);
+            } else {
+                setalerta(false);
+                navigate("/");
+            }
+        });
 
-        }
-        else{
-             
-            setalerta(true);
-        }
+        // if(user == "admin" && contrase=="admin"){
+        //     setalerta(false);
+        //     navigate("/");
+
+        // }
+        // else{
         
-      }
+        //     setalerta(true);
+        // }
+        
+    }
 
-      const quitaralerta = () =>{
+    const quitaralerta = () =>{
         setalerta(false);
-      }
+    }
 
 
 
@@ -42,7 +51,7 @@ export function Login() {
         <div className=''  >
 
 
-                   
+                
                     
                     <div className={alerta ? "show-element" : null}>
                         {alerta && <div className="alert alert-danger alert-dismissible fade show" role="alert">

@@ -45,8 +45,7 @@ new ValidatedMethod({
         UsuariosServ.validateEmail(user.emails[0].address, user._id);
         UsuariosServ.validateUserName(user.username, user._id);
     },
-    run(user) {
-        console.log('Id del usuario logueado: ', this.userId);
+    run(user) {        
         const responseMessage = new ResponseMessage();
         
         if (user._id !== null) {

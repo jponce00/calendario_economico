@@ -18,7 +18,7 @@ export function Tabla({noticias}) {
             <tbody>
 
                 {
-                    noticias.map(noticia => <Registro noticia={noticia} />)
+                    noticias.map(noticia => <Registro key={noticia._id} noticia={noticia} />)
                 }
 
             </tbody>

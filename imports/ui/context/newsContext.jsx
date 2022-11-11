@@ -11,7 +11,8 @@ export const withNews = withTracker(() => {
 	return {
 		noticias: News.find({}, {
 			sort: {hour:1, minutes:1}
-		}).fetch()
+		}).fetch(),
+        currentUser: Meteor.user()
 	}
 })
 
@@ -45,6 +46,7 @@ function NewsProvider(props) {
 
     return (
         <NewsContext.Provider value={{
+            currentUser: props.currentUser,
             noticias: props.noticias,
             agregarNoticia: agregarNoticia,
             obtenerNoticia: obtenerNoticia,
