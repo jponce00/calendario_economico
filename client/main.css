@@ -453,8 +453,8 @@ label{
  
   position: absolute;
   top: 0px;
-  left: 230px;
-  width: 840px;
+  left: 200px!important;
+  width: 838px!important;
   height: 193px;
   background-color: #33353d;
   border-radius: 1px;
@@ -504,7 +504,7 @@ label{
   top: 0px;
   left: 632px;
   width: 200px;
-  height: 193px;
+  height: 235px;
   background-color: #30373d;
   border-radius: 1px;
   z-index: -1;
