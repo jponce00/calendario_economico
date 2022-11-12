@@ -222,19 +222,20 @@ export function Data() {
 			<div className='menufilt container'>								
 					{/* ''''''''''''''''ESTE ES EL NUEVO YA ARREGLADO '''''''''''''' */}
 
-				<div className=' container '>
+				<div className=' butonprimer'>
 
 					{/* <div className = "sinsalto altofiltro">H</div>
 					<div className = "sinsaltomedio mediofiltro">M</div>
 					<div className = "sinsaltobajo bajofiltro">B</div>
 					<div className="vertical-line" > </div> */}
-					<div className="dropdown butonprimer">
+					<div className="dropdown ">
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
 						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<div className = "rellenar"></div>
 							<div className = "rellenar2"></div>
+							<div className = "rellenarbutonderecha"></div>
 
 							<form role="form">
 								<a className="dropdown-item" id='chec' href="#">
@@ -305,7 +306,7 @@ export function Data() {
 
 
 				{/* Filtro de Región*/}
-				<div className=' container butondos'>
+				<div className='  butondos'>
 
 					{/* <div className = "sinsalto altofiltro">H</div>
 					<div className = "sinsaltomedio mediofiltro">M</div>
@@ -364,13 +365,13 @@ export function Data() {
 				</div>
 
 							{/* Por mientras solo es para entrar al LOGIN */}
-			        {currentUser ? null : 
+			        {/* {currentUser ? null : 
 						<div>
 							<button><Link to="/login">LOGIN</Link></button>
 						</div>
 					}
 					
-					{currentUser ? <Logout /> : null}
+					{currentUser ? <Logout /> : null} */}
 
 			</div>
 
@@ -392,6 +393,14 @@ export function Data() {
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
+			{/* Por mientras solo es para entrar al LOGIN */}
+					{currentUser ? null : 
+						<div>
+							<button><Link to="/login">LOGIN</Link></button>
+						</div>
+					}
+					
+					{currentUser ? <Logout /> : null}
 
 
 			{/* parte del footer de la pagina */}
