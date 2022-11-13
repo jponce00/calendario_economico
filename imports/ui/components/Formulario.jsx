@@ -47,12 +47,12 @@ export function Formulario() {
 
     return (
         
-		<div className=""> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
+		<div className=" formevento"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
         
 			<form onSubmit={handleSubmit}>
 
 				<div className="wrapper rounded bg-white">
-					<div className="h3"> Nuevo Evento</div>
+					<div className="h3 tituloformulario"> Nuevo Evento</div>
 
 					<div className="form">
 						<div className="row">
@@ -88,7 +88,7 @@ export function Formulario() {
 
 								<input type="text" className="form-control form-control-3" name='Hora' value={dia} onChange={e => setDia(e.target.value)} placeholder={'dd'} required/>
 							</div>
-							<div className="col-md-6 mt-md-0 mt-3">
+							<div className="col-md-6 mt-md-0 mt-3 importanciaselect">
 								<label className='labelform'>Importancia</label>
 								<div className="d-flex align-items-center mt-2">
 									<select id="sub" name='Importancia' value={importancia} onChange={e => setImportancia(e.target.value)} required>
