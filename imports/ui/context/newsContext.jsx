@@ -44,6 +44,16 @@ function NewsProvider(props) {
         })
     }
 
+    function eliminarNoticia(idNoticia) {
+        Meteor.call('news.delete', idNoticia, (error, response) => {
+            if (error) {
+                alert(error.reason);
+            } else {
+                alert(response.message);
+            }
+        });
+    }
+
     return (
         <NewsContext.Provider value={{
             currentUser: props.currentUser,
@@ -51,7 +61,8 @@ function NewsProvider(props) {
             agregarNoticia: agregarNoticia,
             obtenerNoticia: obtenerNoticia,
             noticiasEditar: noticiaEditar,
-            actualizarNoticia: actualizarNoticia
+            actualizarNoticia: actualizarNoticia,
+            eliminarNoticia: eliminarNoticia
         }}>
             {props.children}
         </NewsContext.Provider>

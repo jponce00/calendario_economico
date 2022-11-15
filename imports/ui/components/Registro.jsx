@@ -4,20 +4,14 @@ import { NewsContext } from '../context/newsContext';
 
 export function Registro({noticia}) {
 
-	const {currentUser} = useContext(NewsContext);
+	const {currentUser, obtenerNoticia, eliminarNoticia} = useContext(NewsContext);
 
 	const [mostrarComponente, setMostrarComponente] = useState(false);
-	const {obtenerNoticia} = useContext(NewsContext);
+	//const {obtenerNoticia} = useContext(NewsContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();		
-		Meteor.call('news.delete', {_id: e.target[0].value}, (error, response) => {
-			if (error) {
-				alert(error.reason);
-			} else {
-				alert(response.message);
-			}
-		});
+		eliminarNoticia({_id: e.target[0].value});
 	}	
 
 	return (
