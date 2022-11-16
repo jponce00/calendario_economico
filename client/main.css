@@ -1416,3 +1416,111 @@ footer a:link {
   top: 20px;
   right: 20px;
 }
+
+
+
+
+
+.formulariodeEditar{
+  width: 100%;
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  z-index: 100;
+}
+
+
+.scroll{
+  /* border:1px solid;
+  height:100px;
+  width:100%;
+  overflow-y:scroll;
+  overflow-x:hidden; */
+
+  height:700px;
+  overflow-y:auto;
+  
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.nomostratable{
+  
+}
+
+
+.close-container {
+  position: relative;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  top: -62px;
+  left: 370px;
+  cursor: pointer;
+}
+
+.leftright {
+  height: 4px;
+  width: 30px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #f4a259;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+
+.rightleft {
+  height: 4px;
+  width: 30px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #f4a259;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+
+.labelcerrarnew {
+  color: red;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+}
+
+.close {
+  margin: 50px 0 0 5px;
+  position: absolute;
+  left: -15px;
+}
+
+.close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: #f25c66;
+}
+
+.close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: #f25c66;
+}
+
+.close-container:hover label {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
