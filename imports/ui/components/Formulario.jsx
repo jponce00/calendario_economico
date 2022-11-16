@@ -1,8 +1,11 @@
 // @ts-nocheck
 import React, { useContext, useState } from 'react';
 import { NewsContext } from '../context/newsContext';
+import formnewContext from "../context/formNew";
 
 export function Formulario() {
+
+	const { setformnew } = useContext(formnewContext);
 
 	const {agregarNoticia} = useContext(NewsContext);
 
@@ -43,129 +46,114 @@ export function Formulario() {
 		};
 
 		agregarNoticia(noticia);
+		setformnew(false);
 	}
 
     return (
         
-		<div className=" formevento"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
+		<div className=" formevento scroll"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
         
 			<form onSubmit={handleSubmit}>
 
-				<div className="">
-					{/* <div className="h3 tituloformulario"> Nuevo Evento</div> */}
+				<div className="wrapper rounded bg-white">
+					<div className="h3 tituloformulario"> Nuevo Evento</div>
 
-					<div className="">
+						<div class="close-container" onClick={() => {
+						
+						setformnew(false);
+                        
+					}}>
+						<div class="leftright"></div>
+						<div class="rightleft"></div>
+						<label class="close labelcerrarnew">CERRAR</label>
+						</div>
+
+					<div className="form">
 						<div className="row">
-							<div className="col-md-2 mt-md-0 mt-3">
-								<br/>
+							<div className="col-md-6 mt-md-0 mt-3">
 								<label className='labelform'>País</label>
 								<input type="text" className="form-control" name='Pais' value={pais} onChange={e => setPais(e.target.value)} required/>
 							</div>
-							<div className="col-md-2 mt-md-0 mt-3">
-								<br/>
+							<div className="col-md-6 mt-md-0 mt-3">
 								<label className='labelform'>Región</label>
 								<input type="text" className="form-control" name='Pais' value={region} onChange={e => setRegion(e.target.value)} required/>
-							</div>
-							<div className="col-md-5 mt-md-0 mt-3">
-								<br/>
+							</div>							
+						</div>
+
+						<div className="row">
+							<div className="col-md-6 mt-md-0 mt-3">
 								<label className='labelform'>Evento</label>
 								<input type="text" className="form-control" name='Evento' value={evento} onChange={e => setEvento(e.target.value)} required/>
 							</div>
-							<div className="col-md-3 mt-md-0 mt-3">
-								<br/>
+							<div className="col-md-6 mt-md-0 mt-3 inputs-tiempo">				
+								<label className='labelform'>Hora (hh:mm)</label>
+								<input type="text" className="form-control form-control-2" name='Hora' value={hora} onChange={e => setHora(e.target.value)} placeholder={'hh'} required/>
+								
+								<input type="text" className="form-control form-control-2" name='Hora' value={minutos} onChange={e => setMinutos(e.target.value)} placeholder={'mm'} required/>
+							</div>						
+						</div>
+
+						<div className="row">
+							<div className="col-md-6 mt-md-0 mt-3 inputs-tiempo">				
+								<label className='labelform'>Fecha (aa/mm/dd)</label>
+								<input type="text" className="form-control form-control-3" name='Hora' value={anio} onChange={e => setAnio(e.target.value)} placeholder={'aa'} required/>
+								
+								<input type="text" className="form-control form-control-3" name='Hora' value={mes} onChange={e => setMes(e.target.value)} placeholder={'mm'} required/>
+
+								<input type="text" className="form-control form-control-3" name='Hora' value={dia} onChange={e => setDia(e.target.value)} placeholder={'dd'} required/>
+							</div>
+							<div className="col-md-6 mt-md-0 mt-3 importanciaselect">
 								<label className='labelform'>Importancia</label>
-								<div className="d-flex align-items-center mt-0">
+								<div className="d-flex align-items-center mt-2">
 									<select id="sub" name='Importancia' value={importancia} onChange={e => setImportancia(e.target.value)} required>
 									<option value="ALTA">ALTA</option>
 									<option value="MEDIA">MEDIA</option>
 									<option value="BAJA">BAJA</option>							
 									</select>
 								</div>
-							</div>							
+							</div>
 						</div>
 
 						<div className="row">
-							<div className="col-md-3 mt-md-2 mt-3 inputs-tiempo">	
-								<label className='labelform'>Fecha (aa/mm/dd)</label>
-								<br/>
-								<input type="text" className="form-control form-control-3" name='Hora' value={anio} onChange={e => setAnio(e.target.value)} placeholder={'aa'} required/>
+							<div className="col-md-6 mt-md-0 mt-3">
+								<label className='labelform'>Actual</label>
+								<input type="text" className="form-control" name='Actual' value={actual} onChange={e => setActual(e.target.value)} required/>
 							</div>
-
-							<div className="col-md-3 mt-md-3 mt-3 inputs-tiempo">	
-							<label className=''></label>
-								<br/>				
-								<input type="text" className="form-control form-control-3" name='Hora' value={mes} onChange={e => setMes(e.target.value)} placeholder={'mm'} required/>
-								<br/>
-							</div>
-
-							<div className="col-md-3 mt-md-3 mt-3 inputs-tiempo">	
-							<label className=''></label>
-								<br/>					
-								<input type="text" className="form-control form-control-3" name='Hora' value={dia} onChange={e => setDia(e.target.value)} placeholder={'dd'} required/>
-							</div>
-							
-							<div className="col-md-3 mt-md-2 mt-3">
-								<label className='labelform'>Moneda</label>
-								<input type="text" className="form-control" name='Moneda' value={moneda} onChange={e => setMoneda(e.target.value)} required/>
-							</div>
-
-
+							<div className="col-md-6 mt-md-0 mt-3">
+								<label className='labelform'>Previsión</label>
+								<input type="text" className="form-control" name='Prevision' value={prevision} onChange={e => setPrevision(e.target.value)} required/>
+							</div>	
 						</div>
-						<br/>
+
 						<div className="row">
-							<div className="col-md-3 mt-md-0 mt-3 inputs-tiempo">
-											
-								<label className='labelform'>Hora (hh:mm)</label>
-								<br/>
-								<input type="text" className="form-control form-control-2" name='Hora' value={hora} onChange={e => setHora(e.target.value)} placeholder={'hh'} required/>
-		
+							<div className="col-md-6 mt-md-0 mt-3">
+								<label className='labelform'>Anterior</label>
+								<input type="text" className="form-control" name='Anterior' value={anterior} onChange={e => setAnterior(e.target.value)} required/>
 							</div>
-
-							<div className="col-md-3 mt-md-2 mt-3 inputs-tiempo">
-								<label className=''></label>
-								<br/>				
-								<input type="text" className="form-control form-control-2" name='Hora' value={minutos} onChange={e => setMinutos(e.target.value)} placeholder={'mm'} required/>
-							</div>
-
 							<div className="col-md-6 mt-md-0 mt-3">
 								<label className='labelform'>URL Bandera</label>
 								<input type="text" className="form-control" name='url' value={url} onChange={e => setUrl(e.target.value)} required/>
 							</div>
-							
 						</div>
 
 						<div className="row">
-						<div className="col-md-2 mt-md-0 mt-3">
-								<br/>
-								<label className='labelform'>Actual</label>
-								<input type="text" className="form-control" name='Actual' value={actual} onChange={e => setActual(e.target.value)} required/>
-							</div>
-							<div className="col-md-2 mt-md-0 mt-3">
-								<br/>
-								<label className='labelform'>Previsión</label>
-								<input type="text" className="form-control" name='Prevision' value={prevision} onChange={e => setPrevision(e.target.value)} required/>
-							</div>
-							<div className="col-md-2 mt-md-0 mt-3">
-								<br/>
-								<label className='labelform'>Anterior</label>
-								<input type="text" className="form-control" name='Anterior' value={anterior} onChange={e => setAnterior(e.target.value)} required/>
-							</div>
-
 							<div className="col-md-6 mt-md-0 mt-3">
-							<br/>
+								<label className='labelform'>Moneda</label>
+								<input type="text" className="form-control" name='Moneda' value={moneda} onChange={e => setMoneda(e.target.value)} required/>
+							</div>
+							<div className="col-md-6 mt-md-0 mt-3">
 								<label className='labelform'>Fuente</label>
 								<input type="text" className="form-control" name='Fuente' value={fuente} onChange={e => setFuente(e.target.value)} required/>
 							</div>
-						</div>
+						</div>						
 
 						<div className=" my-md-2 my-3">
 							<label className='labelform'>Detalle de la noticia</label>							
 							<textarea className="form-control" id="exampleFormControlTextarea1" rows={3} name='Detalle'
 							value={descripcion} onChange={e => setDescripcion(e.target.value)}></textarea>
 						</div>
-
-						<br/>
-						<button type="submit" className="btn btn-primary btn-lg btn-block">Enviar</button>
+						
+						<button type="submit" className="btn btn-primary botondefrom">Enviar</button>
 					</div>
 				</div>
 			</form>
