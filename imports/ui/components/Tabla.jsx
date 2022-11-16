@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import {Registro} from './Registro';
+import formnewContext from "../context/formNew";
 
 export function Tabla({noticias}) {
+
+
+    const { setformnew } = useContext(formnewContext);
+
     return (
         <table className="table tabla">
             <thead>
@@ -13,6 +18,12 @@ export function Tabla({noticias}) {
                     <th scope="col">Actual</th>
                     <th scope="col">Previsión</th>
                     <th scope="col">Anterior</th>
+                    <th scope="col"></th>
+                    <th scope="col"> <button type="button" className="btn btn-danger"  onClick={() => {
+						
+						setformnew(true);
+					}} >New</button> </th>
+                    
                 </tr>
             </thead>
             <tbody>
