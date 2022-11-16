@@ -7,8 +7,14 @@ export function Logout() {
     }
 
     return (
-        <div>
-			<button onClick={cerrarSesion}><Link to="/">LOGOUT</Link></button>
-		</div>
+        // <div>
+		// 	<button onClick={cerrarSesion}><Link to="/">SALIR</Link></button>
+		// </div>
+
+        <div className='BAcceder' onClick={cerrarSesion}>
+            <Link to="/" style={{textDecoration:'none'}}>
+                SALIR
+            </Link>
+        </div>
     )
 }

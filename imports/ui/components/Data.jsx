@@ -8,6 +8,7 @@ import { FormularioActu } from './FormularioActu';
 import { TickerTape,Ticker,SingleTicker  } from "react-ts-tradingview-widgets";
 import { Outlet, Link } from "react-router-dom";
 import { Logout } from './Logout';
+import {Modal} from './Modal';
 
 export function Data() {
 
@@ -126,6 +127,12 @@ export function Data() {
 		//console.log(noticiasFiltro);
 	}
 
+	//Para el botón Agregar Eventos
+	const [estadoModal1, cambiarEstadoModal1] = useState(false);
+
+	estado={estadoModal1}
+	cambiarestado={cambiarEstadoModal1}
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	return (
@@ -134,24 +141,28 @@ export function Data() {
 		<div className="contenedor-todo">
 
 			{/* CONTENEDOR GRIS */}
-
-
-
-			<div className="menu"> 
+			<div className="menu">
 			
-				{/* <h1>CONTENEDOR GRIS</h1> */}
-								<p className='pdetitulo'>
-								
-								<span className='spantitulo'>
-								ECONOMICDX 
-								</span>
-								
-								</p>
+				{/* Nombre de la pagina */}
+				<p className='pdetitulo'>
+					<span className='spantitulo'>
+						ECONOMICDX 
+					</span>
+				</p>
+
+				{/* Por mientras solo es para entrar al LOGIN */}
+				{currentUser ? null : 
+					<div className='BAcceder'>
+						<Link to="/Login" style={{textDecoration:'none'}}>
+							ACCEDER
+						</Link>
+					</div>
+				}
+				{currentUser ? <Logout /> : null}
+
 			</div>
 
                     
-			
-
 			{/* Espacio entre el contener gris y el Breaking News */}
 			<br /> 
 
@@ -159,18 +170,16 @@ export function Data() {
 			<div className = "semueve ">
 
 				<TickerTape colorTheme="light" className="barra" DisplayMode="compact" > </TickerTape>
-				<div className='superponer'>dsadsa</div>
+				{/* <div className='superponer'>dsadsa</div> */} {/*Linea Blanca */}
 
 			</div>
         
 
-
-
 			{/* Contenedor de Calendario Económico */}
 			<div className=' container titulo' >
-				<h1>Calendario Económico</h1>
-				<p>
-					Utilice nuestro calendario económico para explorar eventos globales clave en el <br /> horizonte que podrían cambiar sutilmente o sacudir sustancialmente los mercados <br /> financieros.
+				<h1><center>Calendario Económico</center></h1>
+				<p style={{textAlign:'justify'}}>
+					Utilice nuestro calendario económico para explorar eventos globales clave en el horizonte que podrían cambiar sutilmente o sacudir sustancialmente los mercados financieros.
 				</p>
 			</div>
 
@@ -364,14 +373,16 @@ export function Data() {
 					</div>
 				</div>
 
-							{/* Por mientras solo es para entrar al LOGIN */}
-			        {/* {currentUser ? null : 
-						<div>
-							<button><Link to="/login">LOGIN</Link></button>
-						</div>
-					}
-					
-					{currentUser ? <Logout /> : null} */}
+				<div> 
+					<Modal
+					estado={estadoModal1}
+					cambiarestado={cambiarEstadoModal1}
+					>
+					</Modal>
+					<button className='BAG' onClick={() => cambiarEstadoModal1(!estadoModal1)}>
+						Agregar Eventos
+					</button>
+				</div>
 
 			</div>
 
@@ -383,8 +394,8 @@ export function Data() {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
-				{currentUser ? <Formulario/>: null}
-				{currentUser ? <FormularioActu /> : null}
+				{/* {currentUser ? <Formulario/>: null}
+				{currentUser ? <FormularioActu /> : null} */}
 {/* //			---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Cierre de contenedor tabla */}
@@ -394,13 +405,13 @@ export function Data() {
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Por mientras solo es para entrar al LOGIN */}
-					{currentUser ? null : 
+					{/* {currentUser ? null : 
 						<div>
 							<button><Link to="/login">LOGIN</Link></button>
 						</div>
 					}
 					
-					{currentUser ? <Logout /> : null}
+					{currentUser ? <Logout /> : null} */}
 
 
 			{/* parte del footer de la pagina */}

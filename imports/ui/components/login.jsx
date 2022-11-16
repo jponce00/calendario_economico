@@ -43,9 +43,6 @@ export function Login() {
         setalerta(false);
     }
 
-
-
-
     return (
         
         <div className=''  >
@@ -66,15 +63,16 @@ export function Login() {
                     <div className="centrarlogin">
 
                     <form className="login" onSubmit={handleSubmit}>
-                        <p className="title">PANEL DE ADMINISTRADOR</p>
-                        <input type="text" placeholder="Username" autoFocus required  value={user}  onChange={(e) => setuser(e.target.value)}/>
+                        
+                        <p className="title" style={{textAlign:'center'}}>PANEL DE ADMINISTRADOR</p>
+                        <input type="text" placeholder="Usuario" autoFocus required  value={user}  onChange={(e) => setuser(e.target.value)}/>
                         <i className="fa fa-user"><img className='' src="https://cdn-icons-png.flaticon.com/512/3661/3661442.png" alt="" height='17' width='17'></img> </i>
-                        <input type="password" placeholder="Password" required value={contrase}  onChange={(e) => setcontrase(e.target.value)} />
+                        <input type="password" placeholder="Contraseña" required value={contrase}  onChange={(e) => setcontrase(e.target.value)} />
                         <i className="fa fa-key"> <img className='' src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="" height='17' width='17'></img> </i>
                         {/* <a href="#">¿Olvidaste tu contraseña?</a> */}
                         <button>
                         <i className="spinner"> </i>
-                        <span className="state">Log in</span>
+                        <span className="state">ENTRAR</span>
                         </button>
                     </form>
                     </div>

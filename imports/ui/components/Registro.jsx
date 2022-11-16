@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState, useContext } from 'react';
 import { NewsContext } from '../context/newsContext';
+import {Modal2} from './Modal2';
 
 export function Registro({noticia}) {
 
@@ -14,8 +15,24 @@ export function Registro({noticia}) {
 		eliminarNoticia({_id: e.target[0].value});
 	}	
 
+	//Para la ventana Modal
+	const [estadoModal1, cambiarEstadoModal1] = useState(false);
+	
+	export function doble(){
+		cambiarEstadoModal1(!estadoModal1);
+		obtenerNoticia(noticia._id);
+	}
+
 	return (
-		<>						
+		<>	
+			{/* Cambio de Estado */}
+			<Modal2
+					estado={estadoModal1}
+					cambiarestado={cambiarEstadoModal1}
+			>
+			
+			</Modal2>
+
 			{/* Lo que se mostrar sin ampliar */}
 			<tr>
 				<td> {noticia.hour}:{noticia.minutes} </td>
@@ -41,13 +58,10 @@ export function Registro({noticia}) {
 				<td>					
 					<form onSubmit={handleSubmit}>
 						<input type="hidden" value={noticia._id} />
-						<button className='btn-eliminar' type="submit">X</button>
+						<button type="submit"> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917759.svg?token=exp=1668547639~hmac=3f20a639b2305c1eed7ce24c8615a4a0" height='15' width='15' /></button>
 					</form>
-					<button className='btn-eliminar' onClick={() => {
-						obtenerNoticia(noticia._id);
-					}}>
-						Editar
-					</button>
+
+					<button onClick={() => doble()}> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917484.svg?token=exp=1668547808~hmac=4dc665b61f4648999cf5744efe9ac036" height='15' width='15' /></button>
 				</td> : null
 				}
 			</tr>
@@ -84,3 +98,4 @@ export function Registro({noticia}) {
 
 	);
 }
+

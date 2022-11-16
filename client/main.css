@@ -1341,3 +1341,78 @@ footer a:link {
   
 
 }
+
+.BAcceder{
+  color: black;
+  /* border: 10px solid; */
+  padding: 10px;
+  font-size: 20px;
+  width: 10%;
+  text-align: center;
+  position: relative;
+  left: 1350px;
+  width: 9.7vw;
+  height: 13.2vh;
+  top: -118px;
+}
+
+.BAG{
+  color: black;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  width: 12vw;
+  height: 5vh;
+  background-color: white;
+  float: right;
+  margin-bottom: 1%;
+}
+
+.BAG:focus{
+  background-color: #30373d;
+}
+
+.FondoModal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  padding: 10px; /*Borde de 40px*/
+  align-items: center;  /*centrado horizontal*/
+  justify-content: center; /*centrado vertical*/
+}
+
+.VentanaModal{
+  width: 60%;
+  height: 90%;
+  background: #fff;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 101, 0.2) 0px, 7px, 29px, 0px;
+  padding: 20px;
+}
+
+.EncabezadoModal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.BCerrar{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+}
+
+.BCerrar:focus{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
