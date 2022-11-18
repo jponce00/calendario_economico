@@ -1,8 +1,6 @@
 import React from 'react';
 import { Data } from './Data.jsx';
-import { Login } from './Login.jsx';
-import { Formulario } from './Formulario.jsx';
-import { FormularioActu } from './FormularioActu.jsx';
+import { Login } from './login.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -10,16 +8,15 @@ export default function App() {
 		<BrowserRouter>
 			
 			<Routes>
-				<Route path="/"  element={<Data/>} />
-				<Route path="/Login" element={<Login/>}/>
-				<Route path="/Formulario" element={<Formulario/>}/>
-				<Route path="/FormularioActu" element={<FormularioActu/>}/>
-				
-
+				<Route path="/"  element={ <Data /> } />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 
 		</BrowserRouter>
 
+		// <div>
+		// 	<Data></Data>
+		// </div>
+
 	);
 }
-
