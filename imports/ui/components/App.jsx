@@ -13,10 +13,5 @@ export default function App() {
 			</Routes>
 
 		</BrowserRouter>
-
-		// <div>
-		// 	<Data></Data>
-		// </div>
-
 	);
 }

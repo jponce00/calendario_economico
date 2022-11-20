@@ -11,8 +11,8 @@ import { Logout } from './Logout';
 
 export function Data() {
 
-	const {noticias} = useContext(NewsContext);
-	const {currentUser} = useContext(NewsContext);
+	// Agregamos al componente la informacion del contexto que necesitaremos:
+	const {noticias, currentUser} = useContext(NewsContext);
 
 	// Opciones de importancia
 	const [chkBaja, setChkBaja] = useState(false);
@@ -29,6 +29,7 @@ export function Data() {
 	const [opcionHoy, setOpcionHoy] = useState(true);
 	const [opcionManana, setOpcionManana] = useState(false);
 
+	// Variable a la que se le aplicaran los filtros a partir de lo que tenga el objeto noticias en el contexto:
 	let noticiasFiltro = noticias;	
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,7 +61,7 @@ export function Data() {
 		setChkAlta(!chkAlta);		
 	};
 
-	//Funciones de Seleción de Región
+	//Funcion de selección de región:
 	function filtrarRegion() {		
 		let america = opcionAmerica ? 'America' : null;
 		let europa = opcionEuropa ? 'Europa' : null;
@@ -105,25 +106,19 @@ export function Data() {
 	const seleccionAyer = () => {
 		setOpcionAyer( !opcionAyer );
 		setOpcionHoy( opcionHoy ? !opcionHoy : opcionHoy );
-		setOpcionManana( opcionManana ? !opcionManana : opcionManana );
-		//filtrarFecha();
-		//console.log(noticiasFiltro);
+		setOpcionManana( opcionManana ? !opcionManana : opcionManana );		
 	}
 
 	const seleccionHoy = () => {		
 		setOpcionAyer( opcionAyer ? !opcionAyer : opcionAyer );
 		setOpcionHoy( !opcionHoy );
-		setOpcionManana( opcionManana ? !opcionManana : opcionManana );
-		//filtrarFecha();
-		//console.log(noticiasFiltro);
+		setOpcionManana( opcionManana ? !opcionManana : opcionManana );		
 	}
 
 	const seleccionManana = () => {
 		setOpcionAyer( opcionAyer ? !opcionAyer : opcionAyer );
 		setOpcionHoy( opcionHoy ? !opcionHoy : opcionHoy );
-		setOpcionManana( !opcionManana );
-		//filtrarFecha();
-		//console.log(noticiasFiltro);
+		setOpcionManana( !opcionManana );		
 	}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -134,8 +129,6 @@ export function Data() {
 		<div className="contenedor-todo">
 
 			{/* CONTENEDOR GRIS */}
-
-
 
 			<div className="menu"> 
 			
@@ -148,8 +141,6 @@ export function Data() {
 								
 								</p>
 			</div>
-
-                    
 			
 
 			{/* Espacio entre el contener gris y el Breaking News */}
@@ -216,18 +207,12 @@ export function Data() {
 
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-											{/* ESTE ES EL VIEJO BUTON DE FILTRO DE IMPORTANCIA  NO ARREGLADO*/}
-
 			{/* Contenedor de Filtros */}
 			<div className='menufilt container'>								
 					{/* ''''''''''''''''ESTE ES EL NUEVO YA ARREGLADO '''''''''''''' */}
 
 				<div className=' butonprimer'>
 
-					{/* <div className = "sinsalto altofiltro">H</div>
-					<div className = "sinsaltomedio mediofiltro">M</div>
-					<div className = "sinsaltobajo bajofiltro">B</div>
-					<div className="vertical-line" > </div> */}
 					<div className="dropdown ">
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
@@ -301,7 +286,7 @@ export function Data() {
 
 
 
-					{/* '''''''''''''''''''''''''''''''''''''' */}
+				{/* '''''''''''''''''''''''''''''''''''''' */}
 
 
 
@@ -364,15 +349,6 @@ export function Data() {
 					</div>
 				</div>
 
-							{/* Por mientras solo es para entrar al LOGIN */}
-			        {/* {currentUser ? null : 
-						<div>
-							<button><Link to="/login">LOGIN</Link></button>
-						</div>
-					}
-					
-					{currentUser ? <Logout /> : null} */}
-
 			</div>
 
 {/* //--------------------------------------------------------------------------------------------------------------------------------------------- */}
@@ -403,7 +379,7 @@ export function Data() {
 					{currentUser ? <Logout /> : null}
 
 
-			{/* parte del footer de la pagina */}
+			{/* Parte del footer de la pagina */}
 			<Footer />
 
 		</div>

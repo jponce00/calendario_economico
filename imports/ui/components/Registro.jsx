@@ -4,13 +4,14 @@ import { NewsContext } from '../context/newsContext';
 
 export function Registro({noticia}) {
 
+	// currentUser: usuario que esta actualmente logueado, obtenerNoticia: funcion para obtener la noticia a editar (recibe el id de la noticia), eliminarNoticia: funcion para eliminar una noticia (recibe el id de la noticia):
 	const {currentUser, obtenerNoticia, eliminarNoticia} = useContext(NewsContext);
 
 	const [mostrarComponente, setMostrarComponente] = useState(false);
-	//const {obtenerNoticia} = useContext(NewsContext);
 
 	const handleSubmit = (e) => {
-		e.preventDefault();		
+		e.preventDefault();
+		// Mandamos el id de la noticia a la funcion de eliminar:
 		eliminarNoticia({_id: e.target[0].value});
 	}	
 
@@ -77,7 +78,6 @@ export function Registro({noticia}) {
 					</div>
 
 				</td>  
-
 			</tr>
 
 		</>

@@ -6,6 +6,7 @@ import {News} from '../../api/Noticias/Noticia';
 
 export const NewsContext = createContext({});
 
+// Obtener los datos de la base de datos de forma reactiva:
 export const withNews = withTracker(() => {
     Meteor.subscribe('news.list');
 	return {
@@ -17,8 +18,10 @@ export const withNews = withTracker(() => {
 })
 
 function NewsProvider(props) {
+    // Variable de estado para almacenar los datos de la noticia a editar:
     const [noticiaEditar, setNoticiaEditar] = useState([]);
 
+    // Funcion para agregar noticias:
     function agregarNoticia(news) {
         Meteor.call('news.save', news, (error, response) => {
 			if (error) {
@@ -29,11 +32,13 @@ function NewsProvider(props) {
 		});
     }
 
+    // Funcion para obtener una noticia por su id:
     function obtenerNoticia(idNoticia) {
         let eventoEditar = props.noticias.filter(noticia => noticia._id == idNoticia);
         setNoticiaEditar(eventoEditar);
     }
 
+    // Funcion para actualizar una noticia:
     function actualizarNoticia(news) {
         Meteor.call('news.save', news, (error, response) => {
             if (error) {
@@ -44,6 +49,7 @@ function NewsProvider(props) {
         })
     }
 
+    // Funcion para eliminar una noticia:
     function eliminarNoticia(idNoticia) {
         Meteor.call('news.delete', idNoticia, (error, response) => {
             if (error) {
@@ -69,6 +75,7 @@ function NewsProvider(props) {
     )
 }
 
+// Pasamos los datos del withTracker al NewsProvider:
 export const NewsContextProvider = withNews(NewsProvider);
 
 

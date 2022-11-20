@@ -3,8 +3,11 @@ import React, {useContext, useEffect, useState} from 'react';
 import { NewsContext } from '../context/newsContext';
 
 export function FormularioActu() {
+
+	// noticiasEditar: objeto con los datos de la noticia a editar, actualizarNoticia: funcion para actualizar una noticia (recibe un objeto con los datos de la noticia):
     const {noticiasEditar, actualizarNoticia} = useContext(NewsContext);
 
+	// Datos de la noticia a editar:
     const [pais, setPais] = useState('');
 	const [region, setRegion] = useState('');
 	const [evento, setEvento] = useState('');
