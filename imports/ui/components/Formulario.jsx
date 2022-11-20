@@ -1,8 +1,11 @@
 // @ts-nocheck
 import React, { useContext, useState } from 'react';
 import { NewsContext } from '../context/newsContext';
+import formnewContext from "../context/formNew";
 
 export function Formulario() {
+
+	const { setformnew } = useContext(formnewContext);
 
 	const {agregarNoticia} = useContext(NewsContext);
 
@@ -43,16 +46,27 @@ export function Formulario() {
 		};
 
 		agregarNoticia(noticia);
+		setformnew(false);
 	}
 
     return (
         
-		<div className=" formevento"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
+		<div className=" formevento scroll"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
         
 			<form onSubmit={handleSubmit}>
 
 				<div className="wrapper rounded bg-white">
 					<div className="h3 tituloformulario"> Nuevo Evento</div>
+
+						<div class="close-container" onClick={() => {
+						
+						setformnew(false);
+                        
+					}}>
+						<div class="leftright"></div>
+						<div class="rightleft"></div>
+						<label class="close labelcerrarnew"></label>
+						</div>
 
 					<div className="form">
 						<div className="row">
@@ -139,7 +153,7 @@ export function Formulario() {
 							value={descripcion} onChange={e => setDescripcion(e.target.value)}></textarea>
 						</div>
 						
-						<button type="submit" className="btn btn-primary botondefrom">Enviar</button>
+						<button type="submit" className="btn btn-primary botondefrom">Guardar</button>
 					</div>
 				</div>
 			</form>

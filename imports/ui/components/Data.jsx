@@ -8,11 +8,16 @@ import { FormularioActu } from './FormularioActu';
 import { TickerTape,Ticker,SingleTicker  } from "react-ts-tradingview-widgets";
 import { Outlet, Link } from "react-router-dom";
 import { Logout } from './Logout';
+import formeditarContext from "../context/formeditar";
+import formnewContext from "../context/formNew";
+
 
 export function Data() {
 
-	// Agregamos al componente la informacion del contexto que necesitaremos:
-	const {noticias, currentUser} = useContext(NewsContext);
+	const [formedit, setformedit] = useState(false);
+	const [formnuevo, setformnew] = useState(false);
+
+	const {noticias, currentUser} = useContext(NewsContext);	
 
 	// Opciones de importancia
 	const [chkBaja, setChkBaja] = useState(false);
@@ -217,8 +222,7 @@ export function Data() {
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							IMPORTANCIA &nbsp;&nbsp;&nbsp;<div className = "import">  </div> &nbsp;  &nbsp;&nbsp;
 						</button>
-						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<div className = "rellenar"></div>
+						<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">							
 							<div className = "rellenar2"></div>
 							<div className = "rellenarbutonderecha"></div>
 
@@ -306,8 +310,7 @@ export function Data() {
 						</button>
 
 						<div className="dropdown-menu dropdown-menuregion" aria-labelledby="dropdownMenuButton">
-						
-							<div className = "rellenarbutonbuton2"></div>
+													
 							<div className = "rellenarrellenar2"></div>
 							<form role="form" className='regionselec'>
 
@@ -356,14 +359,34 @@ export function Data() {
 			{/* Contenedor de la Tabla */}
 			<div className="container contenedor-tabla">							
 				{/* Mandar a llamar al componente tabla */}
+
+				<formeditarContext.Provider value={{ formedit, setformedit }}>
+				<formnewContext.Provider value={{ formnuevo, setformnew }}>
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}				
-				{currentUser ? <Formulario/>: null}
-				{currentUser ? <FormularioActu /> : null}
-{/* //			---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+{/* //------------------------------------------------------------------------------------------------------------------------------------ */}				
+              
+			  {formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
+			  </formnewContext.Provider>
+
+				{/* {currentUser ? <Formulario/>: null} */}
+
+				{formedit && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <FormularioActu /> : null}  </div>  }
+				
+
+{/* //		------------------------------------------------------------------------------------------------------------------------------------------ */}
 
 			{/* Cierre de contenedor tabla */}
+			</formeditarContext.Provider>
+
+{/* 
+			<formnewContext.Provider value={{ formnuevo, setformnew }}>
+
+			
+
+			  {formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
+			  </formnewContext.Provider> */}
+
 			</div>
 			{/* Cierre de contenedor principal */}
 

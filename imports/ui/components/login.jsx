@@ -50,8 +50,8 @@ export function Login() {
                     <i className="fa fa-key"> <img className='' src="https://cdn-icons-png.flaticon.com/512/483/483408.png" alt="" height='17' width='17'></img> </i>
                     {/* <a href="#">¿Olvidaste tu contraseña?</a> */}
                     <button>
-                    <i className="spinner"> </i>
-                    <span className="state">Log in</span>
+                        <i className="spinner"> </i>
+                        <span className="state">Log in</span>
                     </button>
                 </form>
             </div>

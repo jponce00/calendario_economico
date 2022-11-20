@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState, useContext } from 'react';
 import { NewsContext } from '../context/newsContext';
+import formeditarContext from "../context/formeditar";
 
 export function Registro({noticia}) {
 
@@ -8,6 +9,10 @@ export function Registro({noticia}) {
 	const {currentUser, obtenerNoticia, eliminarNoticia} = useContext(NewsContext);
 
 	const [mostrarComponente, setMostrarComponente] = useState(false);
+
+
+	const { setformedit } = useContext(formeditarContext);
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -46,6 +51,7 @@ export function Registro({noticia}) {
 					</form>
 					<button className='btn-eliminar' onClick={() => {
 						obtenerNoticia(noticia._id);
+						setformedit(true);
 					}}>
 						Editar
 					</button>

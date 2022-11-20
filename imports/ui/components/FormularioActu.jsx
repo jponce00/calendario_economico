@@ -1,10 +1,12 @@
 // @ts-nocheck
 import React, {useContext, useEffect, useState} from 'react';
 import { NewsContext } from '../context/newsContext';
+import formeditarContext from "../context/formeditar";
 
 export function FormularioActu() {
 
-	// noticiasEditar: objeto con los datos de la noticia a editar, actualizarNoticia: funcion para actualizar una noticia (recibe un objeto con los datos de la noticia):
+	const { setformedit } = useContext(formeditarContext);
+
     const {noticiasEditar, actualizarNoticia} = useContext(NewsContext);
 
 	// Datos de la noticia a editar:
@@ -83,15 +85,27 @@ export function FormularioActu() {
 		};
 
 		actualizarNoticia(noticia);
+		setformedit(false);
 	}
 
     return (
-        <div className=""> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
+        <div className="scroll"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
         
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="" >
 
 				<div className="wrapper rounded bg-white">
 					<div className="h3 tituloformulario"> Editar Evento</div>
+
+
+					<div class="close-container" onClick={() => {
+						
+						setformedit(false);
+                        
+					}}>
+						<div class="leftright"></div>
+						<div class="rightleft"></div>
+						<label class="close labelcerrarnew"></label>
+						</div>
 
 					<div className="form">
 						<div className="row">
@@ -178,7 +192,7 @@ export function FormularioActu() {
 							value={descripcion} onChange={e => setDescripcion(e.target.value)}></textarea>
 						</div>
 						
-						<button type="submit" className="btn btn-primary botondefrom">Enviar</button>
+						<button type="submit" className="btn btn-primary botondefrom">Guardar</button>
 					</div>
 				</div>
 			</form>
