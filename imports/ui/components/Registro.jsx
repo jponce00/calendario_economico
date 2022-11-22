@@ -47,14 +47,12 @@ export function Registro({noticia}) {
 				<td>					
 					<form onSubmit={handleSubmit}>
 						<input type="hidden" value={noticia._id} />
-						<button className='btn-eliminar' type="submit">X</button>
+						<button type="submit"> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917759.svg?token=exp=1668547639~hmac=3f20a639b2305c1eed7ce24c8615a4a0" height='15' width='15'/></button>
 					</form>
-					<button className='btn-eliminar' onClick={() => {
+					<button onClick={() => {
 						obtenerNoticia(noticia._id);
 						setformedit(true);
-					}}>
-						Editar
-					</button>
+					}}> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917484.svg?token=exp=1668547808~hmac=4dc665b61f4648999cf5744efe9ac036" height='15' width='15' /></button>
 				</td> : null
 				}
 			</tr>
