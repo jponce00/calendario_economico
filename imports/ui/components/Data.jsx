@@ -131,11 +131,13 @@ export function Data() {
 	return (
 
 		//Contenedor principal
-		<div className="contenedor-todo">
+		<div className="contenedor-todo " >
 
 			{/* CONTENEDOR GRIS */}
 
 			<div className="menu"> 
+
+			<div></div>
 			
 				{/* <h1>CONTENEDOR GRIS</h1> */}
 								<p className='pdetitulo'>
@@ -145,8 +147,26 @@ export function Data() {
 								</span>
 								
 								</p>
+
+								{currentUser ? null : 
+									<div>
+										
+									</div>
+								}
+
+								{currentUser ? <Logout /> : null}
 			</div>
 			
+
+
+
+			{/* ================================================== */}
+
+			{/* ========================================================= */}
+
+
+
+
 
 			{/* Espacio entre el contener gris y el Breaking News */}
 			<br /> 
@@ -300,7 +320,7 @@ export function Data() {
 					{/* <div className = "sinsalto altofiltro">H</div>
 					<div className = "sinsaltomedio mediofiltro">M</div>
 					<div className = "sinsaltobajo bajofiltro">B</div> */}
-					<div className="vertical-line2" > </div>
+					{/* <div className="vertical-line2" > </div> */}
 
 					{/* Botón */}
 					<div className="dropdown dropdownregion ">
@@ -393,15 +413,11 @@ export function Data() {
 {/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 			{/* Por mientras solo es para entrar al LOGIN */}
-					{currentUser ? null : 
-						<div>
-							<button><Link to="/login">LOGIN</Link></button>
-						</div>
-					}
+				
 					
-					{currentUser ? <Logout /> : null}
+					
 
-
+					
 			{/* Parte del footer de la pagina */}
 			<Footer />
 

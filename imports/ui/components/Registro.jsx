@@ -20,6 +20,9 @@ export function Registro({noticia}) {
 		eliminarNoticia({_id: e.target[0].value});
 	}	
 
+	
+
+
 	return (
 		<>						
 			{/* Lo que se mostrar sin ampliar */}
@@ -47,12 +50,14 @@ export function Registro({noticia}) {
 				<td>					
 					<form onSubmit={handleSubmit}>
 						<input type="hidden" value={noticia._id} />
-						<button type="submit"> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917759.svg?token=exp=1668547639~hmac=3f20a639b2305c1eed7ce24c8615a4a0" height='15' width='15'/></button>
+						<button className='' type="submit"> <img src="https://cdn-icons-png.flaticon.com/512/656/656756.png" height='15' width='15'/> </button>
 					</form>
-					<button onClick={() => {
+					<button className='' onClick={() => {
 						obtenerNoticia(noticia._id);
 						setformedit(true);
-					}}> <img src="https://www.flaticon.es/svg/vstatic/svg/3917/3917484.svg?token=exp=1668547808~hmac=4dc665b61f4648999cf5744efe9ac036" height='15' width='15' /></button>
+					}}>
+						<img src="https://cdn-icons-png.flaticon.com/512/3252/3252918.png" height='18' width='18' />
+					</button>
 				</td> : null
 				}
 			</tr>
