@@ -21,6 +21,8 @@ export function Tabla({noticias}) {
                     <th scope="col">Previsión</th>
                     <th scope="col">Anterior</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    
                     {currentUser ? 
                         <th scope="col">
                             <button type="button" className="btn btn-danger"  onClick={() => {

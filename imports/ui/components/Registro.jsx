@@ -52,14 +52,28 @@ export function Registro({noticia}) {
 						<input type="hidden" value={noticia._id} />
 						<button className='' type="submit"> <img src="https://cdn-icons-png.flaticon.com/512/656/656756.png" height='15' width='15'/> </button>
 					</form>
-					<button className='' onClick={() => {
+					{/* <button className='' onClick={() => {
 						obtenerNoticia(noticia._id);
 						setformedit(true);
 					}}>
 						<img src="https://cdn-icons-png.flaticon.com/512/3252/3252918.png" height='18' width='18' />
-					</button>
-				</td> : null
+					</button> */}
+				</td> 
+				: null
 				}
+
+             {currentUser ?  
+					<td>
+						<button className='' onClick={() => {
+							obtenerNoticia(noticia._id);
+							setformedit(true);
+						}}>
+							<img src="https://cdn-icons-png.flaticon.com/512/3252/3252918.png" height='18' width='18' />
+						</button>
+						</td>
+									
+			 :null }
+
 			</tr>
 
 			{/* Lo que se mostrara al ampliar */}
