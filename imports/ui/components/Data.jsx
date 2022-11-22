@@ -126,15 +126,29 @@ export function Data() {
 		setOpcionManana( !opcionManana );		
 	}
 
+
+	// let Cambiarclassname = " no_desenfoque"
+	
+	// if( formedit == true ){
+
+	//     Cambiarclassname = " si_desenfoque";
+	// }
+	// else{
+
+	// 	Cambiarclassname = " no_desenfoque";
+
+	// }
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	return (
 
 		//Contenedor principal
-		<div className="contenedor-todo " >
+		<div className="" >
 
 			{/* CONTENEDOR GRIS */}
 
+			
 			<div className="menu"> 
 
 			<div></div>
@@ -332,6 +346,7 @@ export function Data() {
 						<div className="dropdown-menu dropdown-menuregion" aria-labelledby="dropdownMenuButton">
 													
 							<div className = "rellenarrellenar2"></div>
+							<div className = "rellenarbutondosderecha"></div>
 							<form role="form" className='regionselec'>
 
 								{/* Opción América */}
@@ -371,6 +386,16 @@ export function Data() {
 						</div>
 					</div>
 				</div>
+
+
+				{/* buscador */}
+
+				<div class="input-group rounded  buscador">
+				<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+				
+				</div>
+
+				
 
 			</div>
 

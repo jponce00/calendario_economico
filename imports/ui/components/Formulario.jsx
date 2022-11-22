@@ -52,7 +52,7 @@ export function Formulario() {
     return (
         
 		<div className=" formevento scroll"> {/* ARTE DEL FORM DEL ADMINISTRADOR */}
-        
+			
 			<form onSubmit={handleSubmit}>
 
 				<div className="wrapper rounded bg-white">
