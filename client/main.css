@@ -325,6 +325,10 @@ label{
 .menu{
   height: 100px;
   background-color: #3b444b;
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-around;
 }
 
 .titulo{
@@ -901,6 +905,7 @@ label{
   margin: 80px auto;
   padding: 30px 45px;
   box-shadow: 5px 25px 35px #3535356b;
+  
 }
 
 .wrapper .labelform {
@@ -1214,17 +1219,19 @@ footer a:link {
   text-transform: uppercase;
   letter-spacing: 0.5em;
   display: inline-block;
-  
+  margin-top: 17px;
   border-width: 4px 0;
   /* padding: 1.5em 0em; */
   padding: 2px 0px 0px 0px;
-  padding-left: 90px !important ;
-  margin-left: 450px !important;
+  /* padding-left: 90px !important ;
+  margin-left: 450px !important; */
   /* position: absolute;
   top: 18%;
   left: 50%; */
   width: 40em;
   /* margin: 0 0 0 -20em; */
+
+  
 }
 
 
@@ -1260,9 +1267,11 @@ footer a:link {
 }
 
 .menu{
+  
   font: 400 1em/1.5 "Neuton"; 
   background: #30373d; 
-  color: rgba(255,255,255,.25);  
+  color: rgba(255,255,255,.25); 
+  text-align: center; 
 }
 
 
@@ -1443,8 +1452,9 @@ footer a:link {
 
 }
 
+/* ocultar scroll */
 ::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 
@@ -1519,8 +1529,17 @@ footer a:link {
 
 
 
+.vamosaver{
+
+  /* text-align: center !important; */
+}
 
 
+.botondecierredesesion{
+  /* align-items: flex-end; */
+}
 
+.botondecierredesesion:hover{
+  cursor: pointer;
 
-
+}
