@@ -326,10 +326,17 @@ label{
   height: 100px;
   background-color: #3b444b;
   display: flex;
-  
+  width: 100%;
   align-items: center;
   justify-content: space-around;
+  margin: 0px !important;
+  padding: 0px !important;
 }
+
+
+
+
+
 
 .titulo{
 
@@ -429,13 +436,24 @@ label{
   /* height: 300px;
 	border: 1px solid black; */
   display: flex;
-  flex-wrap: nowrap;
+  
+  
+  
   }
 
 .butonprimer{
   
   
-  /* margin-right: 250px; */
+  margin-right: 50px;
+  border: 1px solid black;
+}
+
+
+.buscador{
+  
+  margin-top: 20px;
+  width: 450px;
+  margin-left: 80px;
 }
 
 
@@ -469,15 +487,33 @@ label{
 
 }
 
+
+
 .butondos{
   /* position: absolute;
   
   top: 592px;
   left: 557px; */
-  width: 100% !important;
+  /* width: 100% !important; */
+  border: 1px solid black;
+  margin-left: 0px;
   
-  margin-left: 170px;
   
+}
+
+
+.rellenarbutondosderecha{
+ 
+  position: absolute;
+  top: 0px;
+  left: 110px!important;
+  width: 638px!important;
+  height: 235px;
+  background-color: #33353d;
+
+  border-radius: 1px;
+  z-index: -1;
+
 }
 
 
@@ -1020,7 +1056,7 @@ label{
 .formevento{
   /* font-family: 'Barlow Condensed', sans-serif;
    */
-   
+
    /* font-family: 'Barlow Condensed', sans-serif; */
 }
 
@@ -1549,4 +1585,5 @@ body{
   padding: 0px;
   margin: 0px;
 }
+
 
