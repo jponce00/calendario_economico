@@ -5,7 +5,10 @@ import formeditarContext from "../context/formeditar";
 
 export function Registro({noticia}) {
 
-	// currentUser: usuario que esta actualmente logueado, obtenerNoticia: funcion para obtener la noticia a editar (recibe el id de la noticia), eliminarNoticia: funcion para eliminar una noticia (recibe el id de la noticia):
+	/* 	currentUser: usuario que esta actualmente logueado, 
+		obtenerNoticia: funcion para obtener la noticia a editar (recibe el id de la noticia), 
+		eliminarNoticia: funcion para eliminar una noticia (recibe el id de la noticia):
+	*/
 	const {currentUser, obtenerNoticia, eliminarNoticia} = useContext(NewsContext);
 
 	const [mostrarComponente, setMostrarComponente] = useState(false);
@@ -50,29 +53,23 @@ export function Registro({noticia}) {
 				<td>					
 					<form onSubmit={handleSubmit}>
 						<input type="hidden" value={noticia._id} />
-						<button className='' type="submit"> <img src="https://cdn-icons-png.flaticon.com/512/656/656756.png" height='15' width='15'/> </button>
+						<button title='Eliminar' type="submit"> <img src="https://cdn-icons-png.flaticon.com/512/656/656756.png" height='15' width='15'/> </button>
 					</form>
-					{/* <button className='' onClick={() => {
-						obtenerNoticia(noticia._id);
-						setformedit(true);
-					}}>
-						<img src="https://cdn-icons-png.flaticon.com/512/3252/3252918.png" height='18' width='18' />
-					</button> */}
 				</td> 
 				: null
 				}
 
-             {currentUser ?  
+				{currentUser ?  
 					<td>
-						<button className='' onClick={() => {
+						<button title='Editar' onClick={() => {
 							obtenerNoticia(noticia._id);
 							setformedit(true);
 						}}>
 							<img src="https://cdn-icons-png.flaticon.com/512/3252/3252918.png" height='18' width='18' />
 						</button>
-						</td>
-									
-			 :null }
+					</td>
+
+				:null }
 
 			</tr>
 
@@ -80,7 +77,7 @@ export function Registro({noticia}) {
 			<tr className={mostrarComponente ? "mostrar" : "no-mostrar"}>
 				<td 
 // @ts-ignore
-				colSpan="9">
+				colSpan={currentUser ? "10" : "8"}>
 					<div>
 						{mostrarComponente && <div className =" desplegar "> 
 							<div className = "cointainer"> 
