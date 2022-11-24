@@ -34,6 +34,9 @@ export function Data() {
 	const [opcionHoy, setOpcionHoy] = useState(true);
 	const [opcionManana, setOpcionManana] = useState(false);
 
+	// Para filtrar por nombre de evento:
+	const [evento, setEvento] = useState('');
+
 	// Variable a la que se le aplicaran los filtros a partir de lo que tenga el objeto noticias en el contexto:
 	let noticiasFiltro = noticias;	
 
@@ -103,8 +106,8 @@ export function Data() {
 		let month = (filtroFecha.getMonth() + 1).toString();
 		let day = filtroFecha.getDate().toString();
 		
-		noticiasFiltro = noticias.filter(noticia => noticia.year==year && noticia.month==month && noticia.day==day);		
-		
+		noticiasFiltro = noticias.filter(noticia => noticia.year==year && noticia.month==month && noticia.day==day && noticia.name.toLowerCase().includes(evento.toLowerCase().trim()));
+
 		return true;
 	}
 
@@ -126,18 +129,10 @@ export function Data() {
 		setOpcionManana( !opcionManana );		
 	}
 
-
-	// let Cambiarclassname = " no_desenfoque"
-	
-	// if( formedit == true ){
-
-	//     Cambiarclassname = " si_desenfoque";
-	// }
-	// else{
-
-	// 	Cambiarclassname = " no_desenfoque";
-
-	// }
+	// Para filtro por nombre de evento:
+	const handleChange = (e) => {
+		setEvento(e.target.value);			
+	}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -331,11 +326,6 @@ export function Data() {
 				{/* Filtro de Región*/}
 				<div className='  butondos'>
 
-					{/* <div className = "sinsalto altofiltro">H</div>
-					<div className = "sinsaltomedio mediofiltro">M</div>
-					<div className = "sinsaltobajo bajofiltro">B</div> */}
-					{/* <div className="vertical-line2" > </div> */}
-
 					{/* Botón */}
 					<div className="dropdown dropdownregion ">
 						<button className="btn btn-secondary  btn-lg dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -390,9 +380,8 @@ export function Data() {
 
 				{/* buscador */}
 
-				<div class="input-group rounded  buscador">
-				<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-				
+				<div className="input-group rounded  buscador">
+					<input type="search" className="form-control rounded" placeholder="Buscar por nombre de evento" aria-label="Search" aria-describedby="search-addon" value={evento} onChange={handleChange} />
 				</div>
 
 				
@@ -410,9 +399,9 @@ export function Data() {
 				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
 
 {/* //------------------------------------------------------------------------------------------------------------------------------------ */}				
-              
-			  {formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
-			  </formnewContext.Provider>
+
+				{formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
+				</formnewContext.Provider>
 
 				{/* {currentUser ? <Formulario/>: null} */}
 
@@ -429,7 +418,7 @@ export function Data() {
 
 			
 
-			  {formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
+			{formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
 			  </formnewContext.Provider> */}
 
 			</div>
