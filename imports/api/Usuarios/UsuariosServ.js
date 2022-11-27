@@ -1,4 +1,5 @@
 export default {
+    /*-------------- Validar email del usuario --------------*/
     validateEmail(newEmail, idUser) {
         const existsEmail = Accounts.findUserByEmail(newEmail);
         if (idUser) {
@@ -11,6 +12,7 @@ export default {
         }
     },
 
+    /*-------------- Validar nombre de usuario --------------*/
     validateUserName(newUserName, idUser) {
         const existsUserName = Accounts.findUserByUsername(newUserName);
         if (idUser) {
@@ -23,6 +25,7 @@ export default {
         }
     },
 
+    /*-------------- Guardar el usuario --------------*/
     createUser(user) {
         Accounts.createUser({
             username: user.username,
@@ -32,6 +35,7 @@ export default {
         });
     },
 
+    /*-------------- Actualizar el usuario --------------*/
     updateUser(user) {
         const currentUser = Meteor.users.findOne(user._id);
 

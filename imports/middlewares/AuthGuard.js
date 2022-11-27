@@ -1,4 +1,6 @@
 // @ts-nocheck
+
+/*-------------- Funcion para comprobar si el usuario cuenta con los permisos requeridos para usar un endpoint --------------*/
 const checkPermission = function(methodArgs, methodOptions) {
     const idUser = this.userId;
     const permissions = methodOptions.permissions;

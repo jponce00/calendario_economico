@@ -6,6 +6,7 @@ import {ResponseMessage} from '../../startup/server/utilities/ResponseMessage';
 import checkPermission from '/imports/middlewares/AuthGuard';
 import Permissions from '/imports/startup/server/Permissions';
 
+/*-------------- Validar intentos de inicio de sesion --------------*/
 Accounts.validateLoginAttempt(loginAttempt => {
     if (loginAttempt.allowed) {
         const loginTokensOfUser = loginAttempt.user.services.resume?.loginTokens || [];
@@ -20,6 +21,7 @@ Accounts.validateLoginAttempt(loginAttempt => {
     }
 });
 
+/*-------------- Metodo para guardar y actualizar usuarios --------------*/
 new ValidatedMethod({
     name: 'user.save',
     mixins: [MethodHooks],
@@ -69,6 +71,7 @@ new ValidatedMethod({
     }
 });
 
+/*-------------- Metodo para eliminar usuarios --------------*/
 new ValidatedMethod({
     name: 'user.delete',
     mixins: [MethodHooks],

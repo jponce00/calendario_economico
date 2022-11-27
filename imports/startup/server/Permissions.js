@@ -1,4 +1,6 @@
 // @ts-nocheck
+
+/*-------------- Constante para almacenar los permisos para cada modulo --------------*/
 const Permissions = {
     USERS: {
         LIST: {VALUE: 'users-view', TEXT: 'Listar usuarios'},
@@ -20,12 +22,14 @@ const Permissions = {
     }
 };
 
+/*-------------- Arreglo que nos permite recuperar los permisos --------------*/
 export const permissionsArray = Object.keys(Permissions).reduce((accumulator, systemModuleName) => {
     const systemModuleObject = Permissions[systemModuleName];
     const modulePermissions = Object.keys(systemModuleObject).map(permission => systemModuleObject[permission]);
     return accumulator.concat(modulePermissions);
 }, []);
 
+/*-------------- Añadir los nuevos permisos --------------*/
 if (Meteor.isDevelopment) {
     if (Meteor.settings.private && Meteor.settings.private.REFRESH_PERMISSIONS) {
         console.log('Updating permissions...');
@@ -42,7 +46,5 @@ if (Meteor.isDevelopment) {
         }
     }
 }
-
-
 
 export default Permissions;

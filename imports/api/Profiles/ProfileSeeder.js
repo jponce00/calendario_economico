@@ -2,6 +2,7 @@
 import Permisssions, {permissionsArray} from '../../startup/server/Permissions';
 import { Profile } from './Profile';
 
+/*-------------- Constante con los perfiles predefinidos --------------*/
 export const StaticProfiles = {
     admin: {
         name: 'admin',
@@ -10,6 +11,7 @@ export const StaticProfiles = {
     }
 }
 
+/*-------------- Actualizar coleccion de perfiles y roles asignados --------------*/
 if (Meteor.isDevelopment) {
     if (Meteor.settings.private && Meteor.settings.private.REFRESH_STATIC_PROFILES) {
         console.log('Updating static profiles...');

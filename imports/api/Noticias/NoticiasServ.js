@@ -1,6 +1,7 @@
 import {News} from './Noticia';
 
 export default {
+    /*-------------- Guardar la noticia en la coleccion --------------*/
     createNews(news) {
         News.insert({
             name: news.name,
@@ -20,6 +21,7 @@ export default {
         });
     },
 
+    /*-------------- Actualizar la noticia en la coleccion --------------*/
     updateNews(news) {        
         News.update(news._id, {
             name: news.name,
@@ -38,6 +40,7 @@ export default {
         });
     },
 
+    /*-------------- Eliminar la noticia de la coleccion --------------*/
     deleteNews(idNews) {
         News.remove(idNews);
     }

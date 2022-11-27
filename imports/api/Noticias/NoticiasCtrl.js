@@ -2,12 +2,12 @@
 import {Meteor} from 'meteor/meteor';
 import {check, Match} from 'meteor/check';
 import {ResponseMessage} from '../../startup/server/utilities/ResponseMessage';
-// @ts-ignore
 import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import NoticiasServ from './NoticiasServ';
 import checkPermission from '/imports/middlewares/AuthGuard';
 import Permissions from '/imports/startup/server/Permissions';
 
+/*-------------- Metodo para guardar y actualizar eventos --------------*/
 new ValidatedMethod({
     name: 'news.save',
     mixins: [MethodHooks],
@@ -60,6 +60,7 @@ new ValidatedMethod({
     }
 });
 
+/*-------------- Metodo para eliminar eventos --------------*/
 new ValidatedMethod({
     name: 'news.delete',
     mixins: [MethodHooks],
