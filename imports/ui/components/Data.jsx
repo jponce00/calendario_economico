@@ -146,35 +146,25 @@ export function Data() {
 			
 			<div className="menu"> 
 
-			<div></div>
+				<div></div>
 			
 				{/* <h1>CONTENEDOR GRIS</h1> */}
-								<p className='pdetitulo'>
-								
-								<span className='spantitulo'>
-								ECONOMICDX 
-								</span>
-								
-								</p>
+				<p className='pdetitulo'>
+				
+					<span className='spantitulo'>
+						ECONOMICDX 
+					</span>
+				
+				</p>
 
-								{currentUser ? null : 
-									<div>
-										
-									</div>
-								}
+				{currentUser ? null : 
+					<div>
+						
+					</div>
+				}
 
-								{currentUser ? <Logout /> : null}
+				{currentUser ? <Logout /> : null}
 			</div>
-			
-
-
-
-			{/* ================================================== */}
-
-			{/* ========================================================= */}
-
-
-
 
 
 			{/* Espacio entre el contener gris y el Breaking News */}
@@ -375,7 +365,7 @@ export function Data() {
 				</div>
 
 
-				{/* buscador */}
+				{/* buscador por nombre de evento */}
 				<div className="input-group rounded  buscador">
 					<input type="search" className="form-control rounded" placeholder="Buscar por nombre de evento" aria-label="Search" aria-describedby="search-addon" value={evento} onChange={handleChange} />
 				</div>
