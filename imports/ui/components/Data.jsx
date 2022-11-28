@@ -187,9 +187,6 @@ export function Data() {
 				<div className='superponer'>dsadsa</div>
 
 			</div>
-        
-
-
 
 			{/* Contenedor de Calendario Económico */}
 			<div className=' container titulo' >
@@ -379,59 +376,34 @@ export function Data() {
 
 
 				{/* buscador */}
-
 				<div className="input-group rounded  buscador">
 					<input type="search" className="form-control rounded" placeholder="Buscar por nombre de evento" aria-label="Search" aria-describedby="search-addon" value={evento} onChange={handleChange} />
 				</div>
-
 				
-
 			</div>
 
 {/* //--------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-			{/* Contenedor de la Tabla */}
+			
 			<div className="container contenedor-tabla">							
 				{/* Mandar a llamar al componente tabla */}
 
 				<formeditarContext.Provider value={{ formedit, setformedit }}>
-				<formnewContext.Provider value={{ formnuevo, setformnew }}>
-				<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
+					<formnewContext.Provider value={{ formnuevo, setformnew }}>
 
-{/* //------------------------------------------------------------------------------------------------------------------------------------ */}				
+						{/* Contenedor de la Tabla */}
+						<Tabla noticias={(filtrarFecha() && filtrarRegion() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarImportancia()) ? noticiasFiltro : (filtrarFecha() && filtrarRegion()) ? noticiasFiltro : noticiasFiltro} />
+						{/* Cierre de contenedor tabla */}			
 
-				{formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
-				</formnewContext.Provider>
+						{formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
+					</formnewContext.Provider>				
 
-				{/* {currentUser ? <Formulario/>: null} */}
-
-				{formedit && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <FormularioActu /> : null}  </div>  }
-				
-
-{/* //		------------------------------------------------------------------------------------------------------------------------------------------ */}
-
-			{/* Cierre de contenedor tabla */}
-			</formeditarContext.Provider>
-
-{/* 
-			<formnewContext.Provider value={{ formnuevo, setformnew }}>
-
-			
-
-			{formnuevo && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <Formulario/> : null}  </div>  }
-			  </formnewContext.Provider> */}
+					{formedit && <div className='formulariodeEditar  position-fixed '>  {currentUser ? <FormularioActu /> : null}  </div>  }			
+				</formeditarContext.Provider>
 
 			</div>
 			{/* Cierre de contenedor principal */}
 
-{/* //---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-
-			{/* Por mientras solo es para entrar al LOGIN */}
-				
-					
-					
-
-					
 			{/* Parte del footer de la pagina */}
 			<Footer />
 
