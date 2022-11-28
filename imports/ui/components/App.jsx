@@ -8,8 +8,10 @@ export default function App() {
 		<BrowserRouter>
 			
 			<Routes>
-				<Route path="/"  element={ <Data /> } />
+				
+				<Route path="/" element={<Data /> } />
 				<Route path="/login" element={<Login />} />
+				 <Route path="*" element={<Data /> } /> {/*Para rutas inexistentes */}
 			</Routes>
 
 		</BrowserRouter>
